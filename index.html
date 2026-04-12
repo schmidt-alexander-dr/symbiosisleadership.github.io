@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symbiosis Leadership — Climate &amp; Sustainability Advisory</title>
+  <meta name="description" content="Independent advisory at the intersection of carbon accounting, supply chain ESG traceability, climate finance, and standards governance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #FAFAF7;
+      --color-text: #2C2C2C;
+      --color-text-muted: #6B6B6B;
+      --color-accent: #2D5A3D;
+      --color-accent-light: #E8F0EB;
+      --color-rule: #D4D0C8;
+      --color-warm: #F5F0E8;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Source Sans 3', -apple-system, sans-serif;
+      --max-width: 740px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- Header --- */
+    header {
+      padding: 3rem 2rem 0;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .wordmark {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      color: var(--color-accent);
+    }
+
+    nav {
+      margin-top: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-rule);
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      margin-right: 2rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--color-accent); }
+
+    /* --- Hero --- */
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      line-height: 1.2;
+      font-weight: 400;
+      color: var(--color-text);
+      max-width: 600px;
+    }
+
+    .hero .lead {
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--color-text-muted);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    /* --- Sections --- */
+    section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    p + p { margin-top: 1rem; }
+
+    /* --- Domains grid --- */
+    .domains {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .domain-card {
+      padding: 1.5rem;
+      background: var(--color-warm);
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    .domain-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .domain-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .domain-card p {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* --- Affiliations --- */
+    .affiliations {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .affiliation-tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.35rem 0.85rem;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    /* --- Divider --- */
+    .divider {
+      max-width: var(--max-width);
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--color-rule);
+    }
+
+    /* --- Contact --- */
+    .contact-block {
+      background: var(--color-warm);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin-top: 1rem;
+    }
+
+    .contact-block p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+    }
+
+    .contact-block a {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-block a:hover {
+      border-bottom-color: var(--color-accent);
+    }
+
+    .contact-links {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .contact-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-links a:hover { border-bottom-color: var(--color-accent); }
+
+    .contact-links .arrow { font-size: 1rem; }
+
+    /* --- Footer --- */
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--color-accent); }
+
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .hero h1 { font-size: 2.1rem; }
+      section { padding: 0 1.5rem 3rem; }
+      header { padding: 2rem 1.5rem 0; }
+
+      .domains {
+        grid-template-columns: 1fr;
+      }
+
+      nav a { margin-right: 1.2rem; }
+
+      footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    /* --- Fade-in on load --- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1, .hero .lead, section, footer {
+      animation: fadeUp 0.7s ease both;
+    }
+    .hero .lead    { animation-delay: 0.1s; }
+    section:nth-of-type(1) { animation-delay: 0.15s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.25s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wordmark">Symbiosis Leadership</div>
+    <nav>
+      <a href="#practice">Practice</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Solving coordination problems in climate and sustainability</h1>
+    <p class="lead">
+      Independent advisory working at the intersection of carbon accounting, supply chain traceability, climate finance, and standards governance — bridging disciplines, institutions, and sectors.
+    </p>
+  </div>
+
+  <section id="practice">
+    <span class="section-label">Practice</span>
+    <h2>Working in the middle</h2>
+    <p>
+      Many of the hardest problems in sustainability aren't technical — they're coordination failures between disciplines, organisations, and standards bodies that don't naturally talk to each other. Symbiosis Leadership works in that gap.
+    </p>
+    <p>
+      Dr. Alexander Schmidt brings a PhD in Econometrics and over a decade of applied experience to engagements that span strategic advisory, ecosystem integration, and governance design.
+    </p>
+
+    <div class="domains">
+      <div class="domain-card">
+        <h3>Carbon Accounting</h3>
+        <p>Emissions measurement, reporting frameworks, and data infrastructure for credible climate disclosure.</p>
+      </div>
+      <div class="domain-card">
+        <h3>Supply Chain ESG</h3>
+        <p>Traceability architecture, due diligence systems, and interoperability across value chains.</p>
+      </div>
+      <div class="domain-card">
+        <h3>Standards Governance</h3>
+        <p>Active contribution to international standards development through UN bodies and industry coalitions.</p>
+      </div>
+      <div class="domain-card">
+        <h3>Climate Finance</h3>
+        <p>Strategic advisory connecting climate-relevant ventures with financing pathways and investor narratives.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <section id="approach">
+    <span class="section-label">Approach</span>
+    <h2>Engagements</h2>
+    <p>
+      Work typically begins with a focused exploration — a short, bounded engagement to map the problem and establish fit. From there, advisory can continue as retained support, project-based sprints, or on-demand consultation.
+    </p>
+    <p>
+      Current affiliations include the UNECE Team of Specialists on ESG Traceability, the UN/CEFACT Supply Chain Working Group, the PACT Network, the Carbon Accounting Alliance, and the Exponential Roadmap Initiative.
+    </p>
+
+    <div class="affiliations">
+      <span class="affiliation-tag">UNECE</span>
+      <span class="affiliation-tag">UN/CEFACT</span>
+      <span class="affiliation-tag">PACT Network</span>
+      <span class="affiliation-tag">Carbon Accounting Alliance</span>
+      <span class="affiliation-tag">Exponential Roadmap Initiative</span>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <section id="contact">
+    <span class="section-label">Get in touch</span>
+    <h2>Let's talk</h2>
+    <div class="contact-block">
+      <p>
+        Symbiosis Leadership AB is based in Stockholm, Sweden. For inquiries about advisory engagements, speaking, or collaboration — reach out directly.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:alex@symbiosisleadership.com">
+          alex@symbiosisleadership.com <span class="arrow">→</span>
+        </a>
+        <a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">
+          LinkedIn <span class="arrow">→</span>
+        </a>
+        <a href="https://lifeunfolding.substack.com" target="_blank" rel="noopener">
+          Substack <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Symbiosis Leadership AB · Stockholm</span>
+    <span>Org.nr: [YOUR-ORG-NUMBER]</span>
+  </footer>
+
+</body>
+</html>
