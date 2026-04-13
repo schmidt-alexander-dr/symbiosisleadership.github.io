@@ -38,18 +38,21 @@
 
     /* --- NAV --- */
     nav {
-      max-width: var(--max-w-wide);
-      margin: 0 auto;
-      padding: 1.8rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       position: sticky;
       top: 0;
       z-index: 100;
       background: rgba(248, 246, 241, 0.9);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      padding: 1.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .wordmark {
@@ -383,12 +386,14 @@
 <body>
 
   <nav>
-    <div class="wordmark">Symbiosis Leadership</div>
-    <div class="nav-links">
-      <a href="#philosophy">Philosophy</a>
-      <a href="#work">Work with me</a>
-      <a href="#background">Background</a>
-      <a href="#connect">Connect</a>
+    <div class="nav-inner">
+      <div class="wordmark">Symbiosis Leadership</div>
+      <div class="nav-links">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#work">Work with me</a>
+        <a href="#background">Background</a>
+        <a href="#connect">Connect</a>
+      </div>
     </div>
   </nav>
 
