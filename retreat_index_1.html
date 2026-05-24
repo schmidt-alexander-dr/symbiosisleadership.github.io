@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Retreat to Progress — a small-cohort intensive for sustainability leaders navigating the gap between ambition and ground-level action. Founding cohort forming now.">
+  <title>Retreat to Progress — Symbiosis Leadership</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:      #2D6A4F;
+      --green-mid:  #40916C;
+      --green-lt:   #EBF5EE;
+      --black:      #111111;
+      --grey:       #555555;
+      --grey-lt:    #888888;
+      --rule:       #DDDDDD;
+      --bg:         #FAFAF8;
+      --white:      #FFFFFF;
+      --serif:      'DM Serif Display', Georgia, serif;
+      --sans:       'Inter', -apple-system, sans-serif;
+      --max:        740px;
+      --pad:        clamp(1.5rem, 5vw, 3rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--black);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    nav {
+      border-bottom: 1px solid var(--rule);
+      padding: 1.1rem var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--grey);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-brand span { color: var(--green); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--grey);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(3.5rem, 10vw, 6rem) var(--pad) clamp(2.5rem, 7vw, 4rem);
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--green);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--grey);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .hero-cta:hover { background: #245940; }
+    .hero-rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────── */
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(2.5rem, 7vw, 4.5rem) var(--pad);
+      border-bottom: 1px solid var(--rule);
+    }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--green);
+      display: inline-block;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 1.2rem;
+    }
+
+    p { color: var(--grey); margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    strong { color: var(--black); font-weight: 600; }
+
+    /* ── Pull quote ───────────────────────────────────────────────────── */
+    .pull-quote {
+      border-left: 3px solid var(--green);
+      background: var(--green-lt);
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--black);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Profile list ─────────────────────────────────────────────────── */
+    .profile-list {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .profile-bullet {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 15px;
+      color: var(--grey);
+      line-height: 1.55;
+    }
+    .pb-check {
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* ── Leave-with cards ─────────────────────────────────────────────── */
+    .leave-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 600px) { .leave-grid { grid-template-columns: 1fr; } }
+
+    .leave-card {
+      background: var(--green-lt);
+      border-radius: 6px;
+      padding: 1.3rem 1.2rem;
+      border-left: 3px solid var(--green);
+    }
+    .leave-card h3 {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .leave-card p {
+      font-size: 13px;
+      color: var(--grey);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── Practicalities ───────────────────────────────────────────────── */
+    .prac-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 520px) { .prac-grid { grid-template-columns: 1fr; } }
+
+    .prac-item h4 {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.4rem;
+    }
+    .prac-item p { font-size: 14px; color: var(--grey); }
+
+    /* ── EOI form ─────────────────────────────────────────────────────── */
+    .eoi-wrap {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      margin-top: 1.5rem;
+    }
+    .eoi-wrap p {
+      font-size: 15px;
+      margin-bottom: 1.5rem;
+    }
+    .field { margin-bottom: 1.2rem; }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--black);
+      background: var(--bg);
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--green);
+      background: var(--white);
+    }
+    textarea { resize: vertical; min-height: 100px; }
+    .field-note {
+      font-size: 12px;
+      color: var(--grey-lt);
+      margin-top: 0.3rem;
+    }
+    .submit-btn {
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem 2rem;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .submit-btn:hover { background: #245940; }
+    .privacy-note {
+      font-size: 12px;
+      color: var(--grey-lt);
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem var(--pad);
+      text-align: center;
+      font-size: 13px;
+      color: var(--grey-lt);
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    /* ── Day cards ────────────────────────────────────────────────────── */
+    .day-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    @media (max-width: 600px) { .day-cards { grid-template-columns: 1fr; } }
+
+    .day-card {
+      padding: 1.3rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      background: var(--white);
+      border-top: 3px solid var(--green);
+    }
+    .day-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .day-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--black);
+      line-height: 1.3;
+      margin-bottom: 0.6rem;
+    }
+    .day-text {
+      font-size: 14px;
+      color: var(--grey);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Images ───────────────────────────────────────────────────────── */
+    .img-full {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+      display: block;
+      border-radius: 6px;
+      margin-top: 2rem;
+    }
+    .img-full.hero-img {
+      border-radius: 0;
+      margin-top: 0;
+      aspect-ratio: 16 / 6;
+      max-height: 420px;
+    }
+    .img-caption {
+      font-size: 12px;
+      color: var(--grey-lt);
+      font-style: italic;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    .img-placeholder {
+      background: linear-gradient(135deg, #d4e8dc 0%, #b8d8c4 50%, #9cc8b0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-size: 13px;
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Animations ───────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero > * {
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero .eyebrow  { animation-delay: 0.05s; }
+    .hero h1        { animation-delay: 0.15s; }
+    .hero .hero-sub { animation-delay: 0.25s; }
+    .hero .hero-cta { animation-delay: 0.35s; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Nav ─────────────────────────────────────────────────────────────── -->
+  <nav>
+    <a href="https://symbiosisleadership.com" class="nav-brand">Symbiosis <span>Leadership</span></a>
+    <div class="nav-links">
+      <a href="#the-gap">The gap</a>
+      <a href="#who">Who it's for</a>
+      <a href="#arc">The arc</a>
+      <a href="#apply">Express interest</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="eyebrow">A program of Symbiosis Leadership AB</div>
+    <h1>Retreat to <em>Progress</em></h1>
+    <p class="hero-sub">
+      A small-cohort intensive for sustainability leaders navigating the gap between ambition and what is actually changing on the ground. Three days. Five to eight people. One shared problem. Built-in follow-through.
+    </p>
+    <a href="#apply" class="hero-cta">Express interest in the founding cohort</a>
+    <hr class="hero-rule">
+  </div>
+
+  <!-- IMAGE 1: Wide Bohuslän coast — granite, sea, open sky. No people.     -->
+  <!-- Suggested search: "Bohuslän coast granite sea" on unsplash.com         -->
+  <!-- Replace src with your chosen image path, e.g. /images/coast.jpg       -->
+  <img
+    src="images/coast-placeholder.jpg"
+    alt="The Swedish west coast — granite, sea, and open sky"
+    class="img-full hero-img img-placeholder"
+    onerror="this.style.minHeight='280px'; this.alt=''; this.insertAdjacentHTML('afterend','');"
+  >
+  <!-- Temporary gradient shown until real image is added -->
+
+  <!-- ── The gap ───────────────────────────────────────────────────────────── -->
+  <section id="the-gap">
+    <div class="section-label">The gap</div>
+    <h2>You've made the commitments. Now comes the harder part.</h2>
+    <p>
+      You have the mandate, the targets, and the public accountability that comes with them. You've been to the conferences — and know the frameworks well enough to question them. What you're navigating now is something else: getting the right parts of the organization to move at the required pace, making the business case hold under real financial pressure, and finding peers willing to speak honestly about what is not working.
+    </p>
+    <div class="pull-quote">
+      <p>
+        The breakthroughs at this stage don't come from more information or another framework. They come from dedicated time in a dedicated space — with peers navigating the same harder problems, and facilitation that helps name what is actually in the way.
+      </p>
+    </div>
+    <p>
+      <strong>Retreat to Progress</strong> holds what few spaces do: rigorous analysis and honest connection, structured work and open space, deep expertise and the beginner's mind that makes real learning possible. It is not a conference, a peer group, a training program, or a wellness retreat. It is its own category — a small-cohort intensive that integrates the dimensions of change that are usually kept apart.
+    </p>
+  </section>
+
+  <!-- ── Who it's for ──────────────────────────────────────────────────────── -->
+  <section id="who">
+    <div class="section-label">Who it's for</div>
+    <h2>Built for leaders past the fundamentals.</h2>
+    <p>
+      The founding cohort is convened for senior leaders at established organizations with public sustainability commitments — who have moved past the basics and are now navigating the harder part.
+    </p>
+    <div class="profile-list">
+      <div class="profile-bullet"><span class="pb-check">✓</span><span>Lead sustainability, climate, or systems change at a senior level in an established organization with public commitments</span></div>
+      <div class="profile-bullet"><span class="pb-check">✓</span><span>Have moved past the basics — frameworks, targets, and reporting are in place; what's harder is what comes next</span></div>
+      <div class="profile-bullet"><span class="pb-check">✓</span><span>Are navigating the gap between external ambition and internal reality, and are ready to name it honestly</span></div>
+      <div class="profile-bullet"><span class="pb-check">✓</span><span>Are looking for constructive exchange with peers from adjacent sectors — not validation within your own industry</span></div>
+      <div class="profile-bullet"><span class="pb-check">✓</span><span>Are ready to show up as a person, not just a title</span></div>
+    </div>
+    <p style="margin-top:1.2rem; font-size:14px; color:var(--grey-lt);">
+      The underlying philosophy is <strong style="color:var(--black)">Symbiotic Leadership</strong> — the integrated view that individual thriving, economic performance, and planetary health are one system, not competing priorities. That frame runs through every element of the three days.
+    </p>
+
+  <!-- IMAGE 2: One or two people walking/talking outdoors — candid, coastal  -->
+  <!-- or forest path. Suggests the work happens in nature, not a boardroom.  -->
+  <!-- Suggested search: "two people walking forest conversation" on unsplash  -->
+  <!-- Replace src with your chosen image path, e.g. /images/walking.jpg      -->
+  <img
+    src="images/walking-placeholder.jpg"
+    alt="Leaders in conversation in nature"
+    class="img-full img-placeholder"
+    style="margin-top:2rem;"
+  >
+  </section>
+
+  <!-- ── The arc ───────────────────────────────────────────────────────────── -->
+  <section id="arc">
+    <div class="section-label">The arc</div>
+    <h2>Three days. The work continues for 90.</h2>
+    <p>
+      Preparation before arrival and structured follow-through after are as important as the three days themselves. The retreat does not produce insight — it produces moves.
+    </p>
+
+    <div class="day-cards">
+      <div class="day-card">
+        <div class="day-label">Before + Day 1</div>
+        <h3 class="day-title">Arrive as a person, not a title.</h3>
+        <p class="day-text">Participants come oriented — a shared problem statement and preparation prompt sent in advance. On arrival, an outdoor activity shifts the register from screen to body. A shared dinner builds the human ground before the work begins.</p>
+      </div>
+      <div class="day-card">
+        <div class="day-label">Day 2</div>
+        <h3 class="day-title">Name what is actually in the way.</h3>
+        <p class="day-text">The core work. Each participant shares their challenge honestly — personal, organizational, systemic. The group works across each other's problems. Expert input. A shared tool shed is built in the room throughout the day.</p>
+      </div>
+      <div class="day-card">
+        <div class="day-label">Day 3 + After</div>
+        <h3 class="day-title">Leave with a commitment. Keep it.</h3>
+        <p class="day-text">Each participant names one concrete next move — one decision, one experiment, one relationship move — with the group as witness. Peer accountability pairs, a 1:1 follow-up within two weeks, and quarterly community check-ins keep the work alive for 90 days.</p>
+      </div>
+    </div>
+
+    <div class="leave-grid" style="margin-top:2rem;">
+      <div class="leave-card">
+        <h3>New moves</h3>
+        <p>Concrete options specific to your situation — developed with peers who understand the same constraints.</p>
+      </div>
+      <div class="leave-card">
+        <h3>Tangible commitments</h3>
+        <p>One decision, one experiment, one relationship move — named before you leave, with the group as witness.</p>
+      </div>
+      <div class="leave-card">
+        <h3>Community scaffolding</h3>
+        <p>Peer accountability with your cohort and access to the broader alumni network. The retreat is the beginning, not the end.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Practicalities ────────────────────────────────────────────────────── -->
+  <section id="practicalities">
+    <div class="section-label">Practicalities</div>
+    <h2>Founding cohort — autumn 2026.</h2>
+    <div class="prac-grid">
+      <div class="prac-item">
+        <h4>Cohort size</h4>
+        <p>5–8 participants. Small by design — the intimacy is functional, not incidental.</p>
+      </div>
+      <div class="prac-item">
+        <h4>Dates</h4>
+        <p>September–October 2026. Confirmed with participants to navigate the sustainability calendar — including Climate Week NYC / UNGA (September 20–27). Invitations go out before midsummer.</p>
+      </div>
+      <div class="prac-item">
+        <h4>Location</h4>
+        <p>Swedish west coast — a restorative natural setting within reach of major European hubs. Working venue to be confirmed.</p>
+      </div>
+      <div class="prac-item">
+        <h4>Who convenes it</h4>
+        <p><strong>Dr. Alexander Schmidt</strong>, founder of Symbiosis Leadership AB and author of the Symbiotic Leadership framework. He convenes and facilitates every cohort, and remains part of the follow-through.</p>
+      </div>
+      <div class="prac-item">
+        <h4>Investment</h4>
+        <p>The founding cohort is convened at a rate reflecting the pilot nature of this first gathering. Sponsor-supported places may be available. Details on request.</p>
+      </div>
+      <div class="prac-item">
+        <h4>Pre-competitive design</h4>
+        <p>One participant per organization. Competitive relationships declared in advance. Chatham House rule throughout. Full container & safety document available on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE 3: Warm intimate gathering — shared table, hands, coffee cups,  -->
+  <!-- low or natural light. Signals community and trust before the ask.      -->
+  <!-- Suggested search: "people around table evening warm light" on unsplash -->
+  <!-- Replace src with your chosen image path, e.g. /images/gathering.jpg   -->
+  <img
+    src="images/gathering-placeholder.jpg"
+    alt="A shared table — community and trust"
+    class="img-full img-placeholder"
+    style="margin: 0; border-radius: 0; aspect-ratio: 16/5; max-height:320px;"
+  >
+
+  <!-- ── EOI form ──────────────────────────────────────────────────────────── -->
+  <section id="apply">
+    <div class="section-label">Founding cohort</div>
+    <h2>If this resonates — let's talk.</h2>
+    <p>
+      The founding cohort is being assembled through direct conversation and trusted referral. A short expression of interest is enough to start. There is no formal application process.
+    </p>
+    <div class="eoi-wrap">
+      <p>Three questions — takes two minutes.</p>
+      <form action="https://formspree.io/f/alexander@symbiosisleadership.com" method="POST">
+        <div class="field">
+          <label for="name">Your name and organization</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Sarah Chen, Patagonia" required>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="sarah@company.com" required>
+        </div>
+        <div class="field">
+          <label for="problem">What is the harder problem you're navigating right now?</label>
+          <textarea id="problem" name="problem" placeholder="A sentence or two is enough — we'll talk through the rest." required></textarea>
+          <div class="field-note">This is the most important question. It's also how we check fit — the founding cohort is curated around a shared problem space.</div>
+        </div>
+        <button type="submit" class="submit-btn">Send expression of interest</button>
+        <p class="privacy-note">Your details are shared only with Dr. Alexander Schmidt and used only to follow up on your expression of interest.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────────────────────────── -->
+  <footer>
+    <p>Retreat to Progress is a program of <a href="https://symbiosisleadership.com">Symbiosis Leadership AB</a> &nbsp;·&nbsp; Questions: <a href="mailto:alexander@symbiosisleadership.com">alexander@symbiosisleadership.com</a></p>
+  </footer>
+
+</body>
+</html>
