@@ -362,6 +362,56 @@
       margin: 0;
     }
 
+    /* ── Side-by-side image + text bands ─────────────────────────────── */
+    .img-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 100%;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .img-band.flip { direction: rtl; }
+    .img-band.flip > * { direction: ltr; }
+
+    .img-band-photo {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .img-band-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .img-band-photo.placeholder {
+      background: linear-gradient(135deg, #d4e8dc 0%, #9cc8b0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-size: 13px;
+      font-style: italic;
+    }
+    .img-band-text {
+      padding: clamp(2rem, 5vw, 3.5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+    .img-band-text .section-label { margin-bottom: 1rem; }
+    .img-band-text h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); margin-bottom: 1rem; }
+    .img-band-text p { font-size: 15px; color: var(--grey); line-height: 1.7; margin-bottom: 0.8rem; }
+    .img-band-text p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 640px) {
+      .img-band { grid-template-columns: 1fr; }
+      .img-band.flip { direction: ltr; }
+      .img-band-photo { aspect-ratio: 16 / 9; }
+    }
+
     /* ── Images ───────────────────────────────────────────────────────── */
     .img-full {
       width: 100%;
@@ -438,7 +488,7 @@
   <!-- Suggested search: "Bohuslän coast granite sea" on unsplash.com         -->
   <!-- Replace src with your chosen image path, e.g. /images/coast.jpg       -->
   <img
-    src="maja-hurtigh-cysFRA6_iOo-unsplash.jpg"
+    src="images/coast-placeholder.jpg"
     alt="The Swedish west coast — granite, sea, and open sky"
     class="img-full hero-img img-placeholder"
     onerror="this.style.minHeight='280px'; this.alt=''; this.insertAdjacentHTML('afterend','');"
@@ -479,18 +529,23 @@
     <p style="margin-top:1.2rem; font-size:14px; color:var(--grey-lt);">
       The underlying philosophy is <strong style="color:var(--black)">Symbiotic Leadership</strong> — the integrated view that individual thriving, economic performance, and planetary health are one system, not competing priorities. That frame runs through every element of the three days.
     </p>
-
-  <!-- IMAGE 2: One or two people walking/talking outdoors — candid, coastal  -->
-  <!-- or forest path. Suggests the work happens in nature, not a boardroom.  -->
-  <!-- Suggested search: "two people walking forest conversation" on unsplash  -->
-  <!-- Replace src with your chosen image path, e.g. /images/walking.jpg      -->
-  <img
-    src="images/walking-placeholder.jpg"
-    alt="Leaders in conversation in nature"
-    class="img-full img-placeholder"
-    style="margin-top:2rem;"
-  >
   </section>
+
+  <!-- IMAGE 2 + TEXT: photo left, design principles right -->
+  <!-- Photo: one or two people walking/talking outdoors, candid, coastal or forest -->
+  <!-- Suggested search: "two people walking forest conversation" on unsplash.com  -->
+  <div class="img-band">
+    <div class="img-band-photo placeholder">
+      <!-- Replace contents with: <img src="images/walking.jpg" alt="Leaders in conversation in nature"> -->
+      <span>walking.jpg</span>
+    </div>
+    <div class="img-band-text">
+      <span class="section-label">How the space is designed</span>
+      <h2>Nature is not the backdrop. It is the mechanism.</h2>
+      <p>Three days on the Swedish west coast — outdoor sessions, mornings that begin in the body rather than at a screen, and minimal time in lecture mode. The physical environment shifts the cognitive one.</p>
+      <p>Cohorts are curated for pre-competitive safety: one participant per organization, Chatham House rule throughout, and a plain-language participation agreement signed before arrival. The design ensures the space cannot be used for competitive intelligence — which is what makes candor possible.</p>
+    </div>
+  </div>
 
   <!-- ── The arc ───────────────────────────────────────────────────────────── -->
   <section id="arc">
@@ -566,16 +621,21 @@
     </div>
   </section>
 
-  <!-- IMAGE 3: Warm intimate gathering — shared table, hands, coffee cups,  -->
-  <!-- low or natural light. Signals community and trust before the ask.      -->
-  <!-- Suggested search: "people around table evening warm light" on unsplash -->
-  <!-- Replace src with your chosen image path, e.g. /images/gathering.jpg   -->
-  <img
-    src="images/gathering-placeholder.jpg"
-    alt="A shared table — community and trust"
-    class="img-full img-placeholder"
-    style="margin: 0; border-radius: 0; aspect-ratio: 16/5; max-height:320px;"
-  >
+  <!-- IMAGE 3 + TEXT: text left, gathering photo right (flipped layout) -->
+  <!-- Photo: warm shared table, hands, coffee, low/natural light            -->
+  <!-- Suggested search: "people dinner table candles warm evening" on unsplash -->
+  <div class="img-band flip">
+    <div class="img-band-photo placeholder">
+      <!-- Replace contents with: <img src="images/gathering.jpg" alt="A shared table"> -->
+      <span>gathering.jpg</span>
+    </div>
+    <div class="img-band-text">
+      <span class="section-label">The community</span>
+      <h2>The cohort does not end when the retreat does.</h2>
+      <p>Peer accountability pairs, a 1:1 check-in within two weeks, and quarterly cross-cohort gatherings keep the work alive. The shared tool shed — the collective output of the three days — lives in the alumni community library.</p>
+      <p>The founding cohort is the first of a peer network that grows across cohorts and years. The retreat is the beginning, not the end.</p>
+    </div>
+  </div>
 
   <!-- ── EOI form ──────────────────────────────────────────────────────────── -->
   <section id="apply">
