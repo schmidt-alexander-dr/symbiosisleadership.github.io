@@ -23,364 +23,141 @@
       --max-w: 780px;
       --max-w-wide: 1080px;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { font-size: 17px; scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.75; font-weight: 300; -webkit-font-smoothing: antialiased; }
 
-    body {
-      font-family: var(--font-body);
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.75;
-      font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* --- NAV --- */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(248, 246, 241, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .nav-inner {
-      max-width: var(--max-w-wide);
-      margin: 0 auto;
-      padding: 1.8rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .wordmark {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      color: var(--accent);
-    }
-
-    .nav-links a {
-      font-size: 0.78rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-light);
-      text-decoration: none;
-      margin-left: 2rem;
-      transition: color 0.2s;
-    }
-
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(248,246,241,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .nav-inner { max-width: var(--max-w-wide); margin: 0 auto; padding: 1.8rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .wordmark { font-family: var(--font-display); font-size: 1rem; color: var(--accent); }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); text-decoration: none; margin-left: 2rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
+    .nav-links a.nav-highlight { color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 0.25rem 0.65rem; margin-left: 2rem; }
+    .nav-links a.nav-highlight:hover { background: var(--accent); color: #fff; }
 
-    /* --- HERO --- */
-    .hero {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 5rem 2rem 3rem;
-      text-align: center;
-    }
+    /* HERO */
+    .hero { max-width: var(--max-w); margin: 0 auto; padding: 5rem 2rem 3rem; text-align: center; }
+    .hero h1 { font-family: var(--font-display); font-size: 3rem; line-height: 1.2; font-weight: 400; margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero .lead { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; max-width: 620px; margin: 0 auto; }
 
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      line-height: 1.2;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero .lead {
-      font-size: 1.15rem;
-      color: var(--text-light);
-      line-height: 1.8;
-      max-width: 620px;
-      margin: 0 auto;
-    }
-
-    /* --- SHARED --- */
-    .section-narrow {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
+    /* SHARED */
+    .section-narrow { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
     .section-pad { padding-top: 5rem; padding-bottom: 5rem; }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-
-    h2 {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 400;
-      line-height: 1.35;
-      margin-bottom: 1.2rem;
-    }
-
+    .section-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 1.2rem; display: block; }
+    h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; line-height: 1.35; margin-bottom: 1.2rem; }
     p + p { margin-top: 1rem; }
+    .divider { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+    .divider hr { border: none; border-top: 1px solid var(--rule); }
 
-    .divider {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .divider hr {
-      border: none;
-      border-top: 1px solid var(--rule);
-    }
-
-    /* --- PHILOSOPHY BAND --- */
-    .philosophy-band {
+    /* RETREAT FEATURE BAND */
+    .retreat-band {
       background: var(--bg-deep);
       color: var(--text-on-dark);
       padding: 5rem 2rem;
-      margin-top: 5rem;
+      margin-top: 4rem;
     }
-
-    .philosophy-band .inner {
+    .retreat-band .inner {
       max-width: var(--max-w-wide);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 3.5rem;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
       align-items: center;
     }
-
-    .philosophy-photo {
+    .retreat-band .section-label { color: #8BA68E; margin-bottom: 1rem; }
+    .retreat-band h2 { color: #E8E4DB; font-size: 2rem; margin-bottom: 1.2rem; }
+    .retreat-band p { color: #B8B3A7; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
+    .retreat-band p:last-of-type { margin-bottom: 0; }
+    .retreat-photo {
       width: 100%;
-      aspect-ratio: 3/4;
-      background: var(--bg-warm);
+      aspect-ratio: 4/3;
       border-radius: 10px;
       overflow: hidden;
+      background: linear-gradient(135deg, #3a5a42 0%, #2B3029 100%);
     }
-
-    .philosophy-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .philosophy-photo-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #5A5A5A;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .philosophy-band .section-label { color: #8BA68E; }
-    .philosophy-band h2 { color: #E8E4DB; }
-    .philosophy-band p { color: #B8B3A7; }
-
-    .philosophy-band blockquote {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.25rem;
-      line-height: 1.65;
-      color: #D4CFBE;
-      border-left: 3px solid var(--accent);
-      padding-left: 1.5rem;
+    .retreat-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .retreat-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
       margin: 2rem 0;
     }
-
-    /* --- OFFERINGS --- */
-    .offerings {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .offering-card {
-      background: var(--bg-warm);
-      border-radius: 10px;
-      padding: 2rem 1.5rem;
-      transition: transform 0.2s ease;
-    }
-
-    .offering-card:hover { transform: translateY(-3px); }
-
-    .offering-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--accent);
-      opacity: 0.15;
-      margin-bottom: 1.2rem;
-    }
-
-    .offering-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 400;
-      margin-bottom: 0.6rem;
-    }
-
-    .offering-card p {
-      font-size: 0.88rem;
-      color: var(--text-light);
-      line-height: 1.65;
-    }
-
-    /* --- AFFILIATIONS --- */
-    .affiliations {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .affiliations a {
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 0.3rem 0.75rem;
-      border: 1px solid var(--rule);
-      border-radius: 100px;
-      color: var(--text-light);
-      white-space: nowrap;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .affiliations a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* --- CTA --- */
-    .cta-section {
-      background: var(--bg-warm);
-      border-radius: 12px;
-      padding: 3rem;
-      margin-top: 2rem;
-      text-align: center;
-    }
-
-    .cta-section p {
-      color: var(--text-light);
-      max-width: 520px;
-      margin: 0 auto 2rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
+    .retreat-meta-item { border-left: 2px solid var(--accent); padding-left: 0.85rem; }
+    .retreat-meta-item .label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #8BA68E; margin-bottom: 0.2rem; }
+    .retreat-meta-item .value { font-size: 0.9rem; color: #D4CFBE; }
+    .retreat-cta {
       display: inline-block;
+      background: var(--accent);
+      color: #fff;
       padding: 0.8rem 1.8rem;
-      border-radius: 8px;
+      border-radius: 6px;
       font-family: var(--font-body);
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s;
+      margin-top: 1.5rem;
+      transition: background 0.2s;
     }
+    .retreat-cta:hover { background: #4A6B4D; }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
+    /* PHILOSOPHY BAND */
+    .philosophy-band { background: var(--bg-warm); padding: 5rem 2rem; }
+    .philosophy-band .inner { max-width: var(--max-w-wide); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 3.5rem; align-items: center; }
+    .philosophy-photo { width: 100%; aspect-ratio: 3/4; background: #ddd; border-radius: 10px; overflow: hidden; }
+    .philosophy-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .philosophy-band .section-label { color: var(--accent); }
+    .philosophy-band h2 { color: var(--text); }
+    .philosophy-band p { color: var(--text-light); }
+    .philosophy-band blockquote { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.65; color: var(--text); border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 2rem 0; }
 
-    .btn-primary:hover {
-      background: #4A6B4D;
-      transform: translateY(-1px);
-    }
+    /* OFFERINGS — secondary, below retreat feature */
+    .offerings { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+    .offering-card { background: var(--bg-warm); border-radius: 10px; padding: 2rem 1.5rem; transition: transform 0.2s ease; }
+    .offering-card:hover { transform: translateY(-3px); }
+    .offering-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.6rem; }
+    .offering-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.65; }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--accent);
-      border: 1.5px solid var(--accent);
-    }
+    /* AFFILIATIONS */
+    .affiliations { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+    .affiliations a { font-size: 0.75rem; font-weight: 500; padding: 0.3rem 0.75rem; border: 1px solid var(--rule); border-radius: 100px; color: var(--text-light); white-space: nowrap; text-decoration: none; transition: all 0.2s; }
+    .affiliations a:hover { border-color: var(--accent); color: var(--accent); }
 
-    .btn-secondary:hover {
-      background: var(--accent);
-      color: #fff;
-    }
+    /* CTA */
+    .cta-section { background: var(--bg-warm); border-radius: 12px; padding: 3rem; margin-top: 2rem; text-align: center; }
+    .cta-section p { color: var(--text-light); max-width: 520px; margin: 0 auto 2rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #4A6B4D; transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+    .btn-secondary:hover { background: var(--accent); color: #fff; }
 
-    /* --- FOOTER --- */
-    footer {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 3rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-      color: var(--text-light);
-    }
-
-    footer a {
-      color: var(--text-light);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    /* FOOTER */
+    footer { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-light); }
+    footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
-
     .footer-links { display: flex; gap: 1.5rem; }
 
-    /* --- RESPONSIVE --- */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       html { font-size: 16px; }
-
-      .hero {
-        padding: 3.5rem 1.5rem 2.5rem;
-      }
-
+      .hero { padding: 3.5rem 1.5rem 2.5rem; }
       .hero h1 { font-size: 2.2rem; }
-
-      .philosophy-band .inner {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .philosophy-photo {
-        max-width: 280px;
-        margin: 0 auto;
-      }
+      .retreat-band .inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .retreat-meta { grid-template-columns: 1fr 1fr; }
+      .philosophy-band .inner { grid-template-columns: 1fr; gap: 2rem; }
+      .philosophy-photo { max-width: 280px; margin: 0 auto; }
       .offerings { grid-template-columns: 1fr; }
       .section-narrow { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .philosophy-band { padding: 3.5rem 1.5rem; }
+      .retreat-band, .philosophy-band { padding: 3.5rem 1.5rem; }
       .cta-section { padding: 2rem 1.5rem; }
-
-      footer {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-      }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
 
-    /* --- FADE IN --- */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero, .section-narrow, .philosophy-band, footer {
-      animation: fadeUp 0.7s ease both;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .hero { animation: fadeUp 0.7s ease both; }
   </style>
 </head>
 <body>
@@ -393,6 +170,7 @@
         <a href="#work">Work with me</a>
         <a href="#background">Background</a>
         <a href="#connect">Connect</a>
+        <a href="/retreat" class="nav-highlight">Retreat to Progress →</a>
       </div>
     </div>
   </nav>
@@ -405,11 +183,46 @@
     </p>
   </section>
 
+  <!-- RETREAT FEATURE BAND -->
+  <div class="retreat-band" id="retreat">
+    <div class="inner">
+      <div>
+        <span class="section-label">Now forming — founding cohort 2026</span>
+        <h2>Retreat to <em style="font-style:italic; color:#8BA68E">Progress</em></h2>
+        <p>
+          A small-cohort intensive for sustainability leaders navigating the gap between ambition and what is actually changing on the ground. Not a conference, a peer group, or a wellness retreat. Something different: three days in a restorative natural setting with five to eight peers — curated around a shared problem, with built-in follow-through.
+        </p>
+        <div class="retreat-meta">
+          <div class="retreat-meta-item">
+            <div class="label">Cohort size</div>
+            <div class="value">5–8 leaders</div>
+          </div>
+          <div class="retreat-meta-item">
+            <div class="label">Format</div>
+            <div class="value">3 days residential</div>
+          </div>
+          <div class="retreat-meta-item">
+            <div class="label">Location</div>
+            <div class="value">Swedish west coast</div>
+          </div>
+          <div class="retreat-meta-item">
+            <div class="label">Dates</div>
+            <div class="value">Sep–Oct 2026</div>
+          </div>
+        </div>
+        <a href="/retreat" class="retreat-cta">Learn more and express interest →</a>
+      </div>
+      <div class="retreat-photo">
+        <!-- Replace with: <img src="images/coast.jpg" alt="Swedish west coast"> -->
+        <!-- Suggested: the same hero coast image used on the retreat subpage   -->
+      </div>
+    </div>
+  </div>
+
   <!-- PHILOSOPHY -->
   <div class="philosophy-band" id="philosophy">
     <div class="inner">
       <div class="philosophy-photo">
-        <!-- Replace with: <img src="Alex-speaker.png" alt="Alexander Schmidt"> -->
         <img src="Alex-speaker.png" alt="Alexander Schmidt">
       </div>
       <div class="philosophy-content">
@@ -428,29 +241,21 @@
     </div>
   </div>
 
-  <!-- HOW I WORK -->
+  <!-- HOW I WORK — coaching and teams as secondary offerings -->
   <section class="section-narrow section-pad" id="work">
     <span class="section-label">How I work</span>
-    <h2>Spaces for leaders to recalibrate</h2>
+    <h2>Beyond the retreat</h2>
     <p>
-      Symbiotic Leadership is learned in practice, not in theory. I create spaces where leaders step out of their day-to-day, reconnect with what matters, and develop the integrated skillset that these times demand — together with others who share that commitment.
+      Symbiotic Leadership is learned in practice, not in theory. Alongside Retreat to Progress, I work with individual leaders and teams who want to develop an integrated response to the interconnected challenges they face.
     </p>
-
     <div class="offerings">
       <div class="offering-card">
-        <div class="offering-icon"></div>
         <h3>1:1 Coaching</h3>
         <p>Deep, individual work for leaders navigating the shift — from clarifying your theory of change to developing an integrated response to the interconnected challenges your organization faces.</p>
       </div>
       <div class="offering-card">
-        <div class="offering-icon"></div>
         <h3>Teams &amp; Projects</h3>
-        <p>Structured sprints with leadership teams tackling their specific challenges. Building the cross-cutting skillset of Symbiotic Leadership together: rethinking finance, supply chains, carbon, and governance as one interconnected system.</p>
-      </div>
-      <div class="offering-card">
-        <div class="offering-icon"></div>
-        <h3>Retreats</h3>
-        <p>In-person gatherings that bring back physical and emotional connection among leaders. Space to breathe, share challenges openly, gain perspective, and build a community of committed action.</p>
+        <p>Structured sprints with leadership teams tackling their specific challenges — rethinking finance, supply chains, carbon, and governance as one interconnected system.</p>
       </div>
     </div>
   </section>
@@ -467,7 +272,6 @@
     <p>
       This cross-cutting experience informs everything I bring to leaders today: a deep understanding of the four fundamental challenges and a practical, integrated approach to responding to them.
     </p>
-
     <div class="affiliations">
       <a href="https://unece.org/trade/uncefact/ToSTraceability" target="_blank" rel="noopener">UN/CEFACT</a>
       <a href="https://www.rewired.earth" target="_blank" rel="noopener">Rewired Earth</a>
@@ -485,10 +289,10 @@
       <span class="section-label">Get involved</span>
       <h2>This is an invitation</h2>
       <p>
-        Whether you're a leader sensing the need for a fundamental shift, or already acting on it — I'd like to hear from you. Workshops and a first retreat are being planned for 2026.
+        Whether you're a leader sensing the need for a fundamental shift, or already acting on it — I'd like to hear from you.
       </p>
       <div class="cta-buttons">
-        <a href="/cdn-cgi/l/email-protection#90f1fcf5e8f1fef4f5e2d0e3e9fdf2f9ffe3f9e3fcf5f1f4f5e2e3f8f9e0bef3fffd" class="btn btn-primary">Book an exploratory conversation</a>
+        <a href="mailto:alexander@symbiosisleadership.com" class="btn btn-primary">Book an exploratory conversation</a>
         <a href="https://lifeunfolding.substack.com" target="_blank" rel="noopener" class="btn btn-secondary">Read my writing</a>
       </div>
     </div>
@@ -498,4 +302,10 @@
     <span>&copy; 2026 Symbiosis Leadership AB · Stockholm</span>
     <div class="footer-links">
       <a href="https://lifeunfolding.substack.com" target="_blank" rel="noopener">Substack</a>
-      <a href="https://www.linkedin.com/in/schmidt-alexander-dr/" target="_blank" rel="noopene
+      <a href="https://www.linkedin.com/in/schmidt-alexander-dr/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/retreat">Retreat to Progress</a>
+    </div>
+  </footer>
+
+</body>
+</html>
