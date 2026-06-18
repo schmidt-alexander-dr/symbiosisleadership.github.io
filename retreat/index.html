@@ -226,7 +226,7 @@
       margin: 0;
     }
 
-    /* ── Practicalities ───────────────────────────────────────────────── */
+    /* ── Practicalities / two-column grid ────────────────────────────────── */
     .prac-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -324,44 +324,6 @@
     }
     footer a { color: var(--green); text-decoration: none; }
 
-    /* ── Day cards ────────────────────────────────────────────────────── */
-    .day-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 1.8rem;
-    }
-    @media (max-width: 600px) { .day-cards { grid-template-columns: 1fr; } }
-
-    .day-card {
-      padding: 1.3rem 1.2rem;
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      background: var(--white);
-      border-top: 3px solid var(--green);
-    }
-    .day-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 0.5rem;
-    }
-    .day-title {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      color: var(--black);
-      line-height: 1.3;
-      margin-bottom: 0.6rem;
-    }
-    .day-text {
-      font-size: 14px;
-      color: var(--grey);
-      line-height: 1.6;
-      margin: 0;
-    }
-
     /* ── Side-by-side image + text bands ─────────────────────────────── */
     .img-band {
       display: grid;
@@ -385,15 +347,7 @@
       object-fit: cover;
       display: block;
     }
-    .img-band-photo.placeholder {
-      background: linear-gradient(135deg, #d4e8dc 0%, #9cc8b0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--green);
-      font-size: 13px;
-      font-style: italic;
-    }
+
     .img-band-text {
       padding: clamp(2rem, 5vw, 3.5rem);
       display: flex;
@@ -427,30 +381,47 @@
       aspect-ratio: 16 / 6;
       max-height: 420px;
     }
-    .img-caption {
-      font-size: 12px;
-      color: var(--grey-lt);
-      font-style: italic;
-      margin-top: 0.5rem;
-      text-align: center;
-    }
-    .img-placeholder {
-      background: linear-gradient(135deg, #d4e8dc 0%, #b8d8c4 50%, #9cc8b0 100%);
+
+    /* ── Personal statement / photo bubble ───────────────────────────────── */
+    .statement-photo {
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: var(--green);
-      font-size: 13px;
-      font-style: italic;
-      letter-spacing: 0.03em;
+      gap: 1rem;
+      margin-top: 1.8rem;
     }
-
-    figcaption {
-      font-size: 11px;
-      color: var(--grey-lt);
+    .statement-photo img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--green-lt);
+      flex-shrink: 0;
+    }
+    .statement-byline {
+      font-size: 13px;
+      color: var(--grey);
+      line-height: 1.4;
+    }
+    .statement-byline strong {
+      display: block;
+      font-size: 14px;
+      color: var(--black);
+    }
+    .statement-text p {
+      font-family: var(--serif);
       font-style: italic;
-      text-align: right;
-      padding: 0.3rem var(--pad) 0;
+      color: var(--black);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .statement-text p:last-child { margin-bottom: 0; }
+    .statement-text .sig {
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 600;
+      color: var(--green);
+      margin-top: 1.2rem;
     }
 
     /* ── Animations ───────────────────────────────────────────────────── */
@@ -474,9 +445,8 @@
   <nav>
     <a href="https://symbiosisleadership.com" class="nav-brand">Symbiosis <span>Leadership</span></a>
     <div class="nav-links">
-      <a href="#the-gap">The gap</a>
-      <a href="#who">Who it's for</a>
-      <a href="#arc">The arc</a>
+      <a href="#why">Why this exists</a>
+      <a href="#different">What makes this different</a>
       <a href="#apply">Express interest</a>
     </div>
   </nav>
@@ -485,102 +455,119 @@
   <div class="hero">
     <div class="eyebrow">A program of Symbiosis Leadership AB</div>
     <h1>Retreat to <em>Progress</em></h1>
+    <!-- Alt hero-sub, if you'd rather name the domain explicitly:
+         "Three days. A handful of people carrying real responsibility for
+         sustainability and systems change. The honest conversations they
+         don't usually get to have." -->
     <p class="hero-sub">
-      A small-cohort intensive for sustainability leaders navigating the gap between ambition and what is actually changing on the ground.
+      Three days. A handful of people carrying real responsibility for the change they're committed to. The honest conversations they don't usually get to have — about what's actually in the way.
     </p>
     <a href="#apply" class="hero-cta">Express interest in the founding cohort</a>
     <hr class="hero-rule">
   </div>
 
-  <!-- IMAGE 1: Wide Bohuslän coast — granite, sea, open sky. No people.     -->
-  <!-- Suggested search: "Bohuslän coast granite sea" on unsplash.com         -->
-  <!-- Replace src with your chosen image path, e.g. /images/coast.jpg       -->
   <img
     src="maja-hurtigh-cysFRA6_iOo-unsplash.jpg"
     alt="The Swedish west coast — granite, sea, and open sky"
     class="img-full hero-img"
-    onerror="this.style.minHeight='280px'; this.alt=''; this.insertAdjacentHTML('afterend','');"
   >
-  <!-- Temporary gradient shown until real image is added -->
 
-  <!-- ── The gap ───────────────────────────────────────────────────────────── -->
-  <section id="the-gap">
-    <div class="section-label">The gap</div>
+  <!-- ── Why this exists ───────────────────────────────────────────────────── -->
+  <section id="why">
+    <div class="section-label">Why this exists</div>
     <h2>You've made the commitments. Now comes the harder part.</h2>
     <p>
-      You have the mandate, the targets, and the public accountability that comes with them. You've been to the conferences — and know the frameworks well enough to question them. What you're navigating now is something else: getting the right parts of the organization to move at the required pace, making the business case hold under real financial pressure, and finding peers willing to speak honestly about what is not working.
+      You have the mandate, the targets, and the public accountability that comes with them. What you're navigating now is harder to name: holding your conviction through changing organizational structures, economic pressure, and a ground that won't stop shifting.
     </p>
     <div class="pull-quote">
       <p>
-        The breakthroughs at this stage don't come from more information or another framework. They come from dedicated time in a dedicated space — with peers navigating the same harder problems, and facilitation that helps name what is actually in the way.
+        The breakthroughs at this stage don't come from another framework. They come from honest conversation — with people carrying the same weight.
       </p>
     </div>
     <p>
-      <strong>Retreat to Progress</strong> holds what few spaces do: rigorous analysis and honest connection, structured work and open space, deep expertise and the beginner's mind that makes real learning possible. It is not a conference, a peer group, a training program, or a wellness retreat. It is its own category — a small-cohort intensive that integrates the dimensions of change that are usually kept apart.
+      This isn't a conference you attend or a network you join. It's built for one thing: real people, talking honestly about the work they care about most — without the titles, the talking points, or the audience.
     </p>
   </section>
 
-  <!-- ── Who it's for ──────────────────────────────────────────────────────── -->
-  <section id="who">
-    <div class="section-label">Who it's for</div>
-    <h2>Built for leaders past the fundamentals.</h2>
-    <p>
-      The founding cohort is convened for senior leaders at established organizations with public sustainability commitments — who have moved past the basics and are now navigating the harder part.
-    </p>
-    <div class="profile-list">
-      <div class="profile-bullet"><span class="pb-check">✓</span><span>Lead sustainability, climate, or systems change at a senior level in an established organization with public commitments</span></div>
-      <div class="profile-bullet"><span class="pb-check">✓</span><span>Have moved past the basics — frameworks, targets, and reporting are in place; what's harder is what comes next</span></div>
-      <div class="profile-bullet"><span class="pb-check">✓</span><span>Are navigating the gap between external ambition and internal reality, and are ready to name it honestly</span></div>
-      <div class="profile-bullet"><span class="pb-check">✓</span><span>Are looking for constructive exchange with peers from adjacent sectors — not validation within your own industry</span></div>
-      <div class="profile-bullet"><span class="pb-check">✓</span><span>Are ready to show up as a person, not just a title</span></div>
+  <!-- ── Why I built this ──────────────────────────────────────────────────── -->
+  <section id="story">
+    <div class="section-label">Why I built this</div>
+    <div class="statement-text">
+      <p>I want a different kind of space to exist.</p>
+      <p>Conferences can be useful. Networking events, panels, and roundtables can be informative. None of it gave me what I kept looking for: space and time for honest conversations.</p>
+      <p>Years of moving between sectors, organizations, and standards bodies showed me the same pattern, room after room: committed leaders, real mandates, and conversations too polished to be honest.</p>
+      <p>Not an exchange of polished talking points, not a scripted playbook, not another slideshow. Real conversations. Between real humans. Showing up as who they are, not their organizational role.</p>
+      <p>Conversations about the change they're trying to make — the change they deeply care about — and what's actually in the way of it.</p>
+      <p>The space and time to work past limitations and obstacles. Past organizational boundaries and limiting beliefs. Past zero-sum competition, past the surface-level reasons change supposedly can't happen. Toward commitments to concrete next moves.</p>
+      <p>Supported by a community that provides the scaffolding of safety and accountability. Not another business network, not an exclusive membership club, not an expensive certification. A committed community of leaders.</p>
+      <p>This is the liminal space I want to create. Retreat to Progress is my invitation for you to step into it. I'll be there with you — not leading from the front, but holding the space alongside you.</p>
+      <p class="sig">— Alex</p>
     </div>
-    <p style="margin-top:1.2rem; font-size:14px; color:var(--grey-lt);">
-      The underlying philosophy is <strong style="color:var(--black)">Symbiotic Leadership</strong> — the integrated view that individual thriving, economic performance, and planetary health are one system, not competing priorities. That frame runs through every element of the three days.
-    </p>
+    <div class="statement-photo">
+      <img src="../Alex-speaker.png" alt="Dr. Alexander Schmidt">
+      <div class="statement-byline">
+        <strong>Dr. Alexander Schmidt</strong>
+        Founder, Symbiosis Leadership AB
+      </div>
+    </div>
   </section>
 
-  <!-- IMAGE 2 + TEXT: photo left, design principles right -->
-  <!-- Photo: one or two people walking/talking outdoors, candid, coastal or forest -->
-  <!-- Suggested search: "two people walking forest conversation" on unsplash.com  -->
+  <!-- ── What makes this different ──────────────────────────────────────────── -->
+  <section id="different">
+    <div class="section-label">What makes this different</div>
+    <h2>Three things you won't find anywhere else.</h2>
+    <p>
+      Who's there, how the space is held, and what continues after — together, these aren't add-ons. They're the design. All three are expressions of <strong>Symbiotic Leadership</strong>: the view that individual thriving, economic performance, and planetary health are one system, not competing priorities.
+    </p>
+    <h3 style="font-family:var(--serif); font-size:1.15rem; color:var(--black); margin-top:1.8rem; margin-bottom:1rem;">The cohort</h3>
+    <div class="profile-list">
+      <div class="profile-bullet"><span class="pb-check">✓</span><span>Five to eight senior leaders, cross-sector — one per organization, never two from the same company</span></div>
+      <div class="profile-bullet"><span class="pb-check">✓</span><span>Curated around a shared problem space — never open enrollment</span></div>
+      <div class="profile-bullet"><span class="pb-check">✓</span><span>Ready to show up as a person first, not a title</span></div>
+    </div>
+  </section>
+
   <div class="img-band">
     <div class="img-band-photo">
       <img src="aaron-blanco-tejedor-aocUkMcxeqI-unsplash.jpg" alt="Leaders in conversation in nature">
     </div>
     <div class="img-band-text">
-      <span class="section-label">How the space is designed</span>
-      <h2>Nature is not the backdrop. It is the mechanism.</h2>
-      <p>Three days on the Swedish west coast. Outdoor sessions, mornings that begin in the body, minimal time in lecture mode. The physical setting is chosen because it shifts something — in how people think, speak, and listen.</p>
-      <p>Cohorts are curated for pre-competitive safety: one participant per organization, Chatham House rule throughout, a participation agreement signed before arrival. The design makes candor structurally possible — not just encouraged.</p>
+      <span class="section-label">The Liminal Space</span>
+      <h2>Outside the structures that make honesty hard.</h2>
+      <p>Three days outdoors on the Swedish coast, away from titles and inboxes. Corporate badges left at the door — by design, not gesture. That's what makes honest conversation possible.</p>
+      <p>Cohorts are curated for pre-competitive safety: Chatham House rule throughout, a participation agreement signed before arrival.</p>
     </div>
   </div>
 
-  <!-- ── The arc ───────────────────────────────────────────────────────────── -->
-  <section id="arc">
-    <div class="section-label">The arc</div>
-    <h2>Three days is where it starts.</h2>
-    <p>
-      The retreat is where trust is built, harder problems surface, and the conditions are set for real progress. What happens in those three days — and what participants carry forward — is the point.
-    </p>
+  <div class="img-band flip" id="community">
+    <div class="img-band-photo">
+      <img src="kimber-E1GGmoCgAVU-unsplash.jpg" alt="A shared table">
+    </div>
+    <div class="img-band-text">
+      <span class="section-label">What Continues After</span>
+      <h2>The three days are the beginning.</h2>
+      <p>Peer accountability pairs, a 1:1 check-in within two weeks, and regular cross-cohort gatherings keep the work alive. The shared tool shed lives on in the alumni community library.</p>
+      <p>The founding cohort is the first of a peer network that grows across cohorts and years.</p>
+    </div>
+  </div>
 
-    <div class="day-cards">
-      <div class="day-card">
-        <div class="day-label">Day 1</div>
-        <h3 class="day-title">Arrive as a person, not a title.</h3>
-        <p class="day-text">An outdoor activity on arrival shifts the register. A shared dinner and real introductions — not the LinkedIn version — build the human ground before the work begins.</p>
+  <!-- ── How the days are held + What you take home ──────────────────────────── -->
+  <section id="rhythm">
+    <div class="section-label">How the days are held</div>
+    <h2>Three days. Two rhythms.</h2>
+    <div class="prac-grid">
+      <div class="prac-item">
+        <h4>Unstructured</h4>
+        <p>Open afternoons, shared meals, walks — space with nothing scheduled to rush it.</p>
       </div>
-      <div class="day-card">
-        <div class="day-label">Day 2</div>
-        <h3 class="day-title">Name what is actually in the way.</h3>
-        <p class="day-text">Each participant shares their challenge honestly — personal, organizational, systemic. The group works across each other's problems. Expert input. A shared tool shed is built in the room.</p>
-      </div>
-      <div class="day-card">
-        <div class="day-label">Day 3 + Beyond</div>
-        <h3 class="day-title">Leave with a commitment.</h3>
-        <p class="day-text">One decision, one experiment, one relationship move — named before you leave, with the group as witness. The three days set the conditions. What follows is where the real work happens.</p>
+      <div class="prac-item">
+        <h4>Structured</h4>
+        <p>Sessions shaped by what participants bring, held by real facilitation — not improvised.</p>
       </div>
     </div>
+    <p style="margin-top:1.5rem; font-size:14px; color:var(--grey-lt);">Both by design.</p>
 
-    <h3 style="font-family:var(--serif); font-size:1.15rem; color:var(--black); margin-top:2.2rem; margin-bottom:1rem;">What you leave with</h3>
+    <h3 style="font-family:var(--serif); font-size:1.15rem; color:var(--black); margin-top:2.2rem; margin-bottom:1rem;">What you take home</h3>
     <div class="leave-grid">
       <div class="leave-card">
         <h3>New moves</h3>
@@ -592,35 +579,16 @@
       </div>
       <div class="leave-card">
         <h3>A peer network</h3>
-        <p>Five to eight people who were in the room with you, who know what you're working on, and who remain part of the follow-through.</p>
+        <p>Five to eight people who were there with you, who know what you're working on, and remain part of the follow-through.</p>
       </div>
     </div>
   </section>
-
-  <!-- IMAGE 3 + TEXT: text left, gathering photo right — community section -->
-  <!-- Photo: warm shared table, hands, coffee, low/natural light            -->
-  <!-- Suggested search: "people dinner table candles warm evening" on unsplash -->
-  <div class="img-band flip" id="community">
-    <div class="img-band-photo">
-      <img src="kimber-E1GGmoCgAVU-unsplash.jpg" alt="A shared table">
-    </div>
-    <div class="img-band-text">
-      <span class="section-label">The community</span>
-      <h2>Designed for progress beyond the retreat.</h2>
-      <p>Peer accountability pairs, a 1:1 check-in within two weeks, and regular cross-cohort gatherings keep the work alive. The shared tool shed — the collective output of the three days — lives in the alumni community library.</p>
-      <p>The founding cohort is the first of a peer network that grows across cohorts and years.</p>
-    </div>
-  </div>
 
   <!-- ── Practicalities ────────────────────────────────────────────────────── -->
   <section id="practicalities">
     <div class="section-label">Practicalities</div>
     <h2>Founding cohort — autumn 2026.</h2>
     <div class="prac-grid">
-      <div class="prac-item">
-        <h4>Cohort size</h4>
-        <p>5–8 participants. Small by design — the intimacy is functional, not incidental.</p>
-      </div>
       <div class="prac-item">
         <h4>Dates</h4>
         <p>September–October 2026. Confirmed with participants to navigate the sustainability calendar — including Climate Week NYC / UNGA (September 20–27). Invitations go out before midsummer.</p>
@@ -630,16 +598,8 @@
         <p>Swedish west coast — a restorative natural setting within reach of major European hubs. Working venue to be confirmed.</p>
       </div>
       <div class="prac-item">
-        <h4>Who convenes it</h4>
-        <p><strong>Dr. Alexander Schmidt</strong>, founder of Symbiosis Leadership AB and author of the Symbiotic Leadership framework. He convenes and facilitates every cohort, and remains part of the follow-through.</p>
-      </div>
-      <div class="prac-item">
         <h4>Investment</h4>
         <p>The founding cohort is convened at a rate reflecting the pilot nature of this first gathering. Sponsor-supported places may be available. Details on request.</p>
-      </div>
-      <div class="prac-item">
-        <h4>Pre-competitive design</h4>
-        <p>One participant per organization. Competitive relationships declared in advance. Chatham House rule throughout. Full container &amp; safety document available on request.</p>
       </div>
     </div>
   </section>
@@ -665,7 +625,7 @@
         <div class="field">
           <label for="problem">What is the harder problem you're navigating right now?</label>
           <textarea id="problem" name="problem" placeholder="A sentence or two is enough — we'll talk through the rest." required></textarea>
-          <div class="field-note">This is the most important question. It's also how we check fit — the founding cohort is curated around a shared problem space.</div>
+          <div class="field-note">This is what most of our first conversation will be about — the founding cohort is curated around a shared problem space.</div>
         </div>
         <button type="submit" class="submit-btn">Send expression of interest</button>
         <p class="privacy-note">Your details are shared only with Dr. Alexander Schmidt and used only to follow up on your expression of interest.</p>
