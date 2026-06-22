@@ -71,6 +71,18 @@
       font-weight: 500;
     }
     .nav-links a:hover { color: var(--green); }
+    .nav-links a.nav-cta {
+      background: var(--green);
+      color: var(--white);
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-links a.nav-cta:hover {
+      background: #245940;
+      color: var(--white);
+    }
 
     /* ── Hero ─────────────────────────────────────────────────────────── */
     .hero {
@@ -447,7 +459,7 @@
     <div class="nav-links">
       <a href="#why">Why this exists</a>
       <a href="#different">What makes this different</a>
-      <a href="#apply">Express interest</a>
+      <a href="#apply" class="nav-cta">Express interest</a>
     </div>
   </nav>
 
