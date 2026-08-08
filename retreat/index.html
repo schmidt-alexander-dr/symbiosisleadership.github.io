@@ -272,73 +272,61 @@
     }
     .prac-item p { font-size: 14px; color: var(--grey); }
 
-    /* ── EOI form ─────────────────────────────────────────────────────── */
-    .eoi-wrap {
+    /* ── Contact block ────────────────────────────────────────────────── */
+    /* Replaces the former Formspree form. No third-party processor, no
+       stored submissions, no third-country transfer, nothing collected
+       by this page and nothing written to the visitor's device. */
+    .contact-wrap {
       background: var(--white);
       border: 1px solid var(--rule);
       border-radius: 8px;
       padding: clamp(1.5rem, 4vw, 2.5rem);
       margin-top: 1.5rem;
     }
-    /* FIX 2: removed font-size: 15px — now inherits 17px from body. */
-    .eoi-wrap p {
+    .contact-ask {
+      background: var(--green-lt);
+      border-left: 3px solid var(--green);
+      border-radius: 0 4px 4px 0;
+      padding: 1.1rem 1.3rem;
       margin-bottom: 1.5rem;
     }
-    .field { margin-bottom: 1.2rem; }
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 0.4rem;
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea,
-    select {
-      width: 100%;
-      padding: 0.65rem 0.85rem;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      font-family: var(--sans);
+    .contact-ask p {
       font-size: 15px;
-      color: var(--black);
-      background: var(--bg);
-      transition: border-color 0.2s;
-      appearance: none;
+      color: var(--grey);
+      line-height: 1.6;
+      margin-bottom: 0.6rem;
     }
-    input:focus, textarea:focus, select:focus {
-      outline: none;
-      border-color: var(--green);
-      background: var(--white);
-    }
-    textarea { resize: vertical; min-height: 100px; }
-    .field-note {
-      font-size: 12px;
-      color: var(--grey-lt);
-      margin-top: 0.3rem;
-    }
-    .submit-btn {
+    .contact-ask p:last-child { margin-bottom: 0; }
+    .contact-btn {
+      display: block;
       background: var(--green);
       color: var(--white);
-      border: none;
-      padding: 0.8rem 2rem;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.85rem 1.5rem;
       font-family: var(--sans);
       font-size: 15px;
       font-weight: 600;
       border-radius: 4px;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 0.5rem;
       transition: background 0.2s;
+      word-break: break-word;
     }
-    .submit-btn:hover { background: #245940; }
+    .contact-btn:hover { background: #245940; color: var(--white); }
     .privacy-note {
       font-size: 12px;
       color: var(--grey-lt);
       text-align: center;
-      margin-top: 0.8rem;
+      margin-top: 0.9rem;
+      line-height: 1.55;
     }
+    /* Link inherits the small grey note styling rather than jumping to
+       green mid-sentence. The underline carries the affordance. */
+    .privacy-note a {
+      color: var(--grey-lt);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .privacy-note a:hover { color: var(--green); }
 
     /* ── Footer ───────────────────────────────────────────────────────── */
     footer {
@@ -347,8 +335,12 @@
       text-align: center;
       font-size: 13px;
       color: var(--grey-lt);
+      line-height: 1.7;
     }
     footer a { color: var(--green); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer p + p { margin-top: 0.6rem; }
+    .footer-legal { color: var(--grey-lt); }
 
     /* ── Hero image wrapper (FIX 4 & 5) ──────────────────────────────── */
     /* FIX 4: constrains the hero image to the same column width as all
@@ -498,7 +490,7 @@
     <div class="nav-links">
       <a href="#why">Why this exists</a>
       <a href="#different">What makes this different</a>
-      <a href="#apply" class="nav-cta">Express interest</a>
+      <a href="#apply" class="nav-cta">Get in touch</a>
     </div>
   </nav>
 
@@ -669,41 +661,34 @@
     </div>
   </section>
 
-  <!-- EOI form -->
+  <!-- Contact. The Formspree form has been removed: no processor, no stored
+       submissions, no third-country transfer, and nothing collected here. -->
   <section id="apply">
     <div class="section-label">Founding cohort</div>
     <!-- FIX 6: em dash replaced with comma -->
     <h2>If this is the conversation you&rsquo;ve been missing, let&rsquo;s talk.</h2>
     <p>
-      The founding cohort is being assembled through direct conversation and trusted referral. A short expression of interest is enough to start. There&rsquo;s no formal application process.
+      The founding cohort is being assembled through direct conversation and trusted referral. There&rsquo;s no application process and no form to fill in. Write to me directly.
     </p>
-    <div class="eoi-wrap">
-      <!-- FIX 6: em dash replaced with period -->
-      <p>Three questions. Takes two minutes.</p>
-      <form action="https://formspree.io/f/xzdlzkgv" method="POST">
-        <div class="field">
-          <label for="name">Your name and organization</label>
-          <input type="text" id="name" name="name" placeholder="e.g. Sarah Chen, Head of Sustainability" required>
-        </div>
-        <div class="field">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" placeholder="sarah@company.com" required>
-        </div>
-        <div class="field">
-          <label for="problem">What&rsquo;s actually in the way right now?</label>
-          <textarea id="problem" name="problem" placeholder="A sentence or two is enough. We&rsquo;ll talk through the rest." required></textarea>
-          <!-- FIX 6: em dash in field-note replaced with period -->
-          <div class="field-note">This is what most of our first conversation will be about. The founding cohort is curated around a shared problem space.</div>
-        </div>
-        <button type="submit" class="submit-btn">Send expression of interest</button>
-        <p class="privacy-note">Your details are shared only with Dr. Alexander Schmidt and used only to follow up on your expression of interest.</p>
-      </form>
+    <div class="contact-wrap">
+      <div class="contact-ask">
+        <p>Tell me who you are and where you work. Then one or two sentences on what&rsquo;s actually in the way right now.</p>
+        <p>That last part is what most of our first conversation will be about, and it&rsquo;s how the cohort gets curated around a shared problem space.</p>
+      </div>
+      <a class="contact-btn" href="mailto:alexander@symbiosisleadership.com?subject=Retreat%20to%20Progress%20%E2%80%93%20founding%20cohort">alexander@symbiosisleadership.com</a>
+      <p class="privacy-note">
+        Your email comes to me directly and I answer it myself. I use what you write only to follow up with you about the retreat. No list, no sharing. The <a href="https://symbiosisleadership.com/privacy">privacy notice</a> has the detail.
+      </p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>Retreat to Progress is a program of <a href="https://symbiosisleadership.com">Symbiosis Leadership AB</a> &nbsp;&middot;&nbsp; Questions: <a href="mailto:alexander@symbiosisleadership.com">alexander@symbiosisleadership.com</a> &nbsp;&middot;&nbsp; <span style="font-style:italic;">Photography: Unsplash</span></p>
+    <p>Retreat to Progress is a program of <a href="https://symbiosisleadership.com">Symbiosis Leadership AB</a> &nbsp;&middot;&nbsp; Questions: <a href="mailto:alexander@symbiosisleadership.com">alexander@symbiosisleadership.com</a></p>
+    <!-- ABL 28 kap. 5 §: företagsnamn, organisationsnummer and the ort for
+         styrelsens säte must appear on the company website. Vitessanktionerad. -->
+    <p class="footer-legal">Symbiosis Leadership AB &nbsp;&middot;&nbsp; Org.nr 559520-8801 &nbsp;&middot;&nbsp; S&auml;te: Soten&auml;s</p>
+    <p><a href="https://symbiosisleadership.com/privacy">Privacy notice</a> &nbsp;&middot;&nbsp; <span style="font-style:italic;">Photography: Unsplash</span></p>
   </footer>
 
 </body>
