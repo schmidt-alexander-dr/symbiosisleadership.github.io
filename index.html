@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Symbiosis Leadership — Alexander Schmidt</title>
-  <meta name="description" content="Symbiotic Leadership: helping leaders develop the mindset and skills to create conditions for collective thriving — for their organizations, communities, and planet.">
+  <meta name="description" content="Symbiotic Leadership: helping leaders develop the mindset and skills to create conditions for collective thriving, for their organizations, communities, and planet.">
+  <!-- FONTS: switched from Libre Baskerville / Nunito Sans to DM Serif Display /
+       Inter so this page matches /retreat. Inter 300 kept so the light body
+       weight used throughout still resolves. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #F8F6F1;
@@ -18,8 +21,8 @@
       --text-on-dark: #E8E4DB;
       --accent: #5B7F5E;
       --rule: #D1CCBF;
-      --font-display: 'Libre Baskerville', Georgia, serif;
-      --font-body: 'Nunito Sans', -apple-system, sans-serif;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
       --max-w: 780px;
       --max-w-wide: 1080px;
     }
@@ -37,9 +40,10 @@
     .nav-links a.nav-highlight:hover { background: var(--accent); color: #fff; }
 
     /* HERO */
+    /* DM Serif Display sets tighter and heavier than Libre Baskerville at the
+       same size, so h1 line-height nudged from 1.2 to 1.15. */
     .hero { max-width: var(--max-w); margin: 0 auto; padding: 5rem 2rem 3rem; text-align: center; }
-    .hero h1 { font-family: var(--font-display); font-size: 3rem; line-height: 1.2; font-weight: 400; margin-bottom: 1.5rem; }
-    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero h1 { font-family: var(--font-display); font-size: 3rem; line-height: 1.15; font-weight: 400; margin-bottom: 1.5rem; }
     .hero .lead { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; max-width: 620px; margin: 0 auto; }
 
     /* SHARED */
@@ -112,7 +116,7 @@
     .philosophy-band p { color: var(--text-light); }
     .philosophy-band blockquote { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.65; color: var(--text); border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 2rem 0; }
 
-    /* OFFERINGS — secondary, below retreat feature */
+    /* OFFERINGS */
     .offerings { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
     .offering-card { background: var(--bg-warm); border-radius: 10px; padding: 2rem 1.5rem; transition: transform 0.2s ease; }
     .offering-card:hover { transform: translateY(-3px); }
@@ -133,12 +137,16 @@
     .btn-primary:hover { background: #4A6B4D; transform: translateY(-1px); }
     .btn-secondary { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
     .btn-secondary:hover { background: var(--accent); color: #fff; }
+    .cta-privacy { font-size: 0.72rem; color: var(--text-light); margin-top: 1.5rem; }
+    .cta-privacy a { color: var(--text-light); text-decoration: underline; text-underline-offset: 2px; }
+    .cta-privacy a:hover { color: var(--accent); }
 
     /* FOOTER */
-    footer { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-light); }
+    footer { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; font-size: 0.75rem; color: var(--text-light); line-height: 1.7; }
     footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
-    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-legal { display: flex; flex-direction: column; text-align: left; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
@@ -153,7 +161,8 @@
       .section-narrow { padding-left: 1.5rem; padding-right: 1.5rem; }
       .retreat-band, .philosophy-band { padding: 3.5rem 1.5rem; }
       .cta-section { padding: 2rem 1.5rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; align-items: center; }
+      .footer-legal { text-align: center; }
     }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
@@ -176,13 +185,17 @@
   </nav>
 
   <!-- HERO -->
+  <!-- COPY: <em> removed from "Thrive together." Italics are reserved for
+       concepts and definitions, not emphasis. Same call as "Progress" on
+       the retreat page. Revert by wrapping in <em> and restoring:
+       .hero h1 em { font-style: italic; color: var(--accent); } -->
   <section class="hero">
-    <h1>Strive together.<br><em>Thrive together.</em></h1>
+    <h1>Strive together.<br>Thrive together.</h1>
     <p class="lead">
-      We've been pursuing wellbeing while ignoring our symbiotic relationship with each other and the planet. I help leaders develop the mindset and skills to restore the balance — and create the conditions for collective, long-term thriving.
+      We've been pursuing wellbeing while ignoring our symbiotic relationship with each other and the planet. I help leaders develop the mindset and skills to restore the balance, and to create the conditions for collective, long-term thriving.
     </p>
   </section>
-  
+
   <!-- PHILOSOPHY -->
   <div class="philosophy-band" id="philosophy">
     <div class="inner">
@@ -193,26 +206,29 @@
         <span class="section-label">Symbiotic Leadership</span>
         <h2>The change I seek to make</h2>
         <p>
-          For decades, we've treated economic growth and planetary health as separate ledgers. Buy now, pay later. But the bill is arriving — in disrupted supply chains, volatile energy markets, extreme weather, and a generation of leaders who sense that something fundamental needs to shift.
+          For decades, we've treated economic growth and planetary health as separate ledgers. Buy now, pay later. But the bill is arriving. Disrupted supply chains, volatile energy markets, extreme weather, and a generation of leaders who sense that something fundamental needs to shift.
         </p>
         <blockquote>
-          Symbiotic Leadership means recognizing that none of us will be well if the planet is not. It's a shift from extractive to generative — in how we think, lead, and create value.
+          Symbiotic Leadership means recognizing that none of us will be well if the planet is not. It's a shift from extractive to generative, in how we think, lead, and create value.
         </blockquote>
         <p>
-          This isn't a call to renounce ambition. It's a return to the original meaning of competition — <em>com-petere</em>, to strive together. The change starts ground-up, with leaders who have the humility to admit they don't have all the answers alone — and the courage to find them together.
+          This isn't a call to renounce ambition. It's a return to the original meaning of competition: <em>com-petere</em>, to strive together. The change starts ground-up, with leaders who have the humility to admit they don't have all the answers alone, and the courage to find them together.
         </p>
       </div>
     </div>
   </div>
-  
+
   <!-- RETREAT FEATURE BAND -->
   <div class="retreat-band" id="retreat">
     <div class="inner">
       <div>
-        <span class="section-label">Now forming — founding cohort 2026</span>
-        <h2>Retreat to <em style="font-style:italic; color:#8BA68E">Progress</em></h2>
+        <span class="section-label">Now forming: founding cohort 2026</span>
+        <h2>Retreat to Progress</h2>
         <p>
-          A small-cohort intensive for sustainability leaders navigating the gap between ambition and what is actually changing on the ground. Not a conference, a peer group, or a wellness retreat. Something different: three days in a restorative natural setting with five to eight peers — curated around a shared problem, with built-in follow-through.
+          A small-cohort intensive for sustainability leaders working in the gap between the commitments that have been made and what is actually moving on the ground.
+        </p>
+        <p>
+          Three days on the Bohuslän coast with five to eight peers, curated around a shared problem, with follow-through built in.
         </p>
         <div class="retreat-meta">
           <div class="retreat-meta-item">
@@ -240,21 +256,21 @@
     </div>
   </div>
 
-  <!-- HOW I WORK — coaching and teams as secondary offerings -->
+  <!-- HOW I WORK -->
   <section class="section-narrow section-pad" id="work">
     <span class="section-label">How I work</span>
     <h2>Beyond the retreat</h2>
     <p>
-      Symbiotic Leadership is learned in practice, not in theory. Alongside Retreat to Progress, I work with individual leaders and teams who want to develop an integrated response to the interconnected challenges they face.
+      Some of this work happens one to one, and some of it inside a team that has to make the decision together. Alongside Retreat to Progress, I work with individual leaders and with leadership teams building a response that holds the whole problem rather than one piece of it.
     </p>
     <div class="offerings">
       <div class="offering-card">
         <h3>1:1 Coaching</h3>
-        <p>Deep, individual work for leaders navigating the shift — from clarifying your theory of change to developing an integrated response to the interconnected challenges your organization faces.</p>
+        <p>Deep, individual work for leaders in the middle of the shift. Clarifying your theory of change, then building a response your organization can actually carry.</p>
       </div>
       <div class="offering-card">
         <h3>Teams &amp; Projects</h3>
-        <p>Structured sprints with leadership teams tackling their specific challenges — rethinking finance, supply chains, carbon, and governance as one interconnected system.</p>
+        <p>Structured sprints with leadership teams on a specific challenge. Finance, supply chains, carbon, and governance treated as one system rather than four.</p>
       </div>
     </div>
   </section>
@@ -266,10 +282,10 @@
     <span class="section-label">Background</span>
     <h2>Built at the intersections</h2>
     <p>
-      The Symbiotic Leadership philosophy grows from over a decade of applied work at the intersection of carbon accounting, supply chain ESG traceability, climate finance, and standards governance. I hold a PhD in Econometrics and have worked as an independent advisor bridging disciplines, institutions, and sectors — the kind of coordination problems that siloed expertise alone cannot solve.
+      The Symbiotic Leadership philosophy grows from over a decade of applied work at the intersection of carbon accounting, supply chain ESG traceability, climate finance, and standards governance. I hold a PhD in Econometrics and have worked as an independent advisor bridging disciplines, institutions, and sectors. Those are the coordination problems that siloed expertise cannot solve.
     </p>
     <p>
-      This cross-cutting experience informs everything I bring to leaders today: a deep understanding of the four fundamental challenges and a practical, integrated approach to responding to them.
+      That's what I bring to the leaders I work with now: a practical, integrated way of responding to problems that don't sit inside a single discipline.
     </p>
     <div class="affiliations">
       <a href="https://unece.org/trade/uncefact/ToSTraceability" target="_blank" rel="noopener">UN/CEFACT</a>
@@ -287,21 +303,31 @@
       <span class="section-label">Get involved</span>
       <h2>This is an invitation</h2>
       <p>
-        Whether you're a leader sensing the need for a fundamental shift, or already acting on it — I'd like to hear from you.
+        Whether you're a leader sensing the need for a fundamental shift, or already acting on it, I'd like to hear from you.
       </p>
       <div class="cta-buttons">
-        <a href="mailto:alexander@symbiosisleadership.com" class="btn btn-primary">Book an exploratory conversation</a>
+        <a href="mailto:alexander@symbiosisleadership.com" class="btn btn-primary">Book an exploration conversation</a>
         <a href="https://lifeunfolding.substack.com" target="_blank" rel="noopener" class="btn btn-secondary">Read my writing</a>
       </div>
+      <p class="cta-privacy">
+        Your email comes to me directly and I use it only to reply to you. The <a href="/privacy">privacy notice</a> has the detail.
+      </p>
     </div>
   </section>
 
   <footer>
-    <span>&copy; 2026 Symbiosis Leadership AB · Stockholm</span>
+    <!-- ABL 28 kap. 5 §: företagsnamn, organisationsnummer and the ort for
+         styrelsens säte must appear on the company website. Vitessanktionerad.
+         Replaces the previous "© 2026 Symbiosis Leadership AB · Stockholm". -->
+    <div class="footer-legal">
+      <span>&copy; 2026 Symbiosis Leadership AB</span>
+      <span>Org.nr 559520-8801 · Säte: Sotenäs</span>
+    </div>
     <div class="footer-links">
       <a href="https://lifeunfolding.substack.com" target="_blank" rel="noopener">Substack</a>
       <a href="https://www.linkedin.com/in/schmidt-alexander-dr/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="/retreat">Retreat to Progress</a>
+      <a href="/privacy">Privacy</a>
     </div>
   </footer>
 
