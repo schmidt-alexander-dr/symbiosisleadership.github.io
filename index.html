@@ -7,7 +7,7 @@
   <!-- META: rewritten to match the new above-the-fold promise. The previous
        description led with the philosophy; this one leads with who the work is
        for, which is also what search results and link previews will show. -->
-  <meta name="description" content="Counsel for sustainability and climate leaders in large organizations, at the point where the easy wins are gone and the data no longer settles the argument. Dr. Alexander Schmidt, Symbiosis Leadership.">
+  <meta name="description" content="Counsel for sustainability and climate leaders in large organizations, for the work that can't be done alone. Dr. Alexander Schmidt, Symbiosis Leadership.">
   <!-- FONTS: switched from Libre Baskerville / Nunito Sans to DM Serif Display /
        Inter so this page matches /retreat. Inter 300 kept so the light body
        weight used throughout still resolves. -->
@@ -39,7 +39,7 @@
 
     /* NAV */
     nav { position: sticky; top: 0; z-index: 100; background: rgba(248,246,241,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-    .nav-inner { max-width: var(--max-w-wide); margin: 0 auto; padding: 1.8rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .nav-inner { max-width: var(--max-w-wide); margin: 0 auto; padding: 1.4rem 2rem; display: flex; justify-content: space-between; align-items: center; }
     .wordmark { font-family: var(--font-display); font-size: 1rem; color: var(--accent); }
     .nav-links a { font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); text-decoration: none; margin-left: 2rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
@@ -51,42 +51,48 @@
        same size, so h1 line-height nudged from 1.2 to 1.15. */
     /* IDENTITY: portrait and descriptor moved up from the old philosophy band.
        A visitor who met Alexander an hour ago needs to recognise the face and
-       read what he does before anything else. This is the whole point of the
-       September 2026 revision. */
-    .hero { max-width: var(--max-w); margin: 0 auto; padding: 4rem 2rem 3rem; text-align: center; }
-    .hero-id { display: flex; align-items: center; justify-content: center; gap: 0.9rem; margin-bottom: 2.5rem; }
-    .hero-id img { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: center top; }
+       read what he does before anything else. */
+    /* VERTICAL: padding cut from 5rem/3rem to 3rem/2.5rem as part of the
+       less-scrolling pass. Revert if the hero feels cramped on a large screen. */
+    .hero { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem 2.5rem; text-align: center; }
+    .hero-id { display: flex; align-items: center; justify-content: center; gap: 0.9rem; margin-bottom: 2rem; }
+    .hero-id img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; object-position: center top; }
     .hero-id .who { text-align: left; line-height: 1.45; }
     .hero-id .name { font-size: 0.95rem; font-weight: 500; color: var(--text); }
     .hero-id .role { font-size: 0.82rem; color: var(--text-light); }
-    .hero h1 { font-family: var(--font-display); font-size: 3rem; line-height: 1.15; font-weight: 400; margin-bottom: 1.5rem; }
-    .hero .lead { font-size: 1.15rem; color: var(--text-light); line-height: 1.8; max-width: 620px; margin: 0 auto; }
-    .hero-cta { margin-top: 2.2rem; }
+    .hero h1 { font-family: var(--font-display); font-size: 2.9rem; line-height: 1.15; font-weight: 400; margin-bottom: 1.3rem; }
+    .hero .lead { font-size: 1.12rem; color: var(--text-light); line-height: 1.75; max-width: 620px; margin: 0 auto; }
+    .hero-cta { margin-top: 2rem; }
 
     /* SHARED */
     .section-narrow { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
-    .section-pad { padding-top: 5rem; padding-bottom: 5rem; }
+    .section-wide { max-width: var(--max-w-wide); margin: 0 auto; padding: 0 2rem; }
+    .section-pad { padding-top: 4rem; padding-bottom: 4rem; }
     .section-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 1.2rem; display: block; }
     h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; line-height: 1.35; margin-bottom: 1.2rem; }
     p + p { margin-top: 1rem; }
     .divider { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
     .divider hr { border: none; border-top: 1px solid var(--rule); }
 
-    /* SITUATIONS */
-    /* Four client situations, new section. Left rule rather than cards: these
-       are scenes to be read in sequence, not options to be compared, and the
-       card treatment would have implied the wrong thing. */
-    .situations { margin-top: 2.5rem; display: grid; gap: 2rem; }
-    .situation { border-left: 2px solid var(--rule); padding-left: 1.5rem; transition: border-color 0.25s; }
-    .situation:hover { border-left-color: var(--accent); }
-    .situation p { color: var(--text-light); }
-    .situation strong { font-weight: 500; color: var(--text); }
+    /* STALL + RESPONSE */
+    /* One continuous band. The four stall points and "that's where our work
+       begins" used to be separate sections with a divider between them; running
+       them together means the problem and the response read as one movement,
+       and saves roughly half a screen. */
+    .stall-band { background: var(--bg-warm); padding: 4rem 0 4.5rem; }
+    .stall-band h2 { text-align: center; margin-bottom: 2.5rem; }
+    .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .tile { background: var(--bg); border-radius: 10px; padding: 1.8rem 1.6rem; }
+    .tile p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+    .tile strong { display: block; font-family: var(--font-display); font-weight: 400; font-size: 1.05rem; color: var(--text); margin-bottom: 0.5rem; }
+    .response { max-width: var(--max-w); margin: 3.5rem auto 0; padding: 0 2rem; }
+    .response h2 { text-align: center; }
 
     /* OFFERINGS */
     /* Three cards at equal weight. Retreat to Progress no longer gets its own
-       feature band: the September 2026 decision was to present the three ways
-       of working flat and let the conversation sort fit. Revert by restoring
-       the .retreat-band block from git history. */
+       feature band: the decision was to present the three ways of working flat
+       and let the conversation sort fit. Revert by restoring the .retreat-band
+       block from git history. */
     .offerings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; align-items: start; }
     .offering-card { background: var(--bg-warm); border-radius: 10px; padding: 2rem 1.5rem; }
     .offering-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.6rem; }
@@ -94,17 +100,19 @@
     .offering-card .card-meta { font-size: 0.75rem; color: var(--text-light); line-height: 1.6; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
     .offering-card .card-link { display: inline-block; margin-top: 1rem; font-size: 0.82rem; font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
     .offering-card .card-link:hover { border-bottom-color: var(--accent); }
+    .offerings-note { font-size: 0.88rem; color: var(--text-light); margin-top: 1.8rem; }
+    .offerings-cta { margin-top: 1.8rem; }
 
     /* PHILOSOPHY BAND */
     /* Moved after the offerings and inverted to the deep tone the retreat band
        used to carry. The philosophy keeps its visual weight but no longer has
-       to explain the practice before the reader knows what the practice is. */
-    .philosophy-band { background: var(--bg-deep); color: var(--text-on-dark); padding: 5rem 2rem; }
+       to explain the practice before the reader knows what the practice is.
+       No eyebrow label: the concept is the header. */
+    .philosophy-band { background: var(--bg-deep); color: var(--text-on-dark); padding: 4.5rem 2rem; }
     .philosophy-band .inner { max-width: var(--max-w-wide); margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr; gap: 3.5rem; align-items: center; }
-    .philosophy-band .section-label { color: var(--accent-on-dark); }
     .philosophy-band h2 { color: #E8E4DB; }
     .philosophy-band p { color: #B8B3A7; }
-    .philosophy-band blockquote { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.65; color: #E8E4DB; border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 1.8rem 0; }
+    .philosophy-band blockquote { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.65; color: #E8E4DB; border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 1.6rem 0; }
     .philosophy-photo { width: 100%; aspect-ratio: 4/5; border-radius: 10px; overflow: hidden; background: linear-gradient(135deg, #3a5a42 0%, #2B3029 100%); }
     .philosophy-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -120,7 +128,7 @@
     .testimonial .attrib { font-family: var(--font-body); font-style: normal; font-size: 0.8rem; color: var(--text-light); margin-top: 0.6rem; }
 
     /* CTA */
-    .cta-section { background: var(--bg-warm); border-radius: 12px; padding: 3rem; margin-top: 2rem; text-align: center; }
+    .cta-section { background: var(--bg-warm); border-radius: 12px; padding: 3rem; text-align: center; }
     .cta-section p { color: var(--text-light); max-width: 520px; margin: 0 auto 2rem; }
     .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
     .btn-primary { background: var(--accent); color: #fff; }
@@ -142,18 +150,19 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .offerings { grid-template-columns: 1fr; }
+      .tiles { grid-template-columns: 1fr; gap: 1.2rem; }
     }
     @media (max-width: 768px) {
       html { font-size: 16px; }
-      .hero { padding: 3rem 1.5rem 2.5rem; }
-      .hero h1 { font-size: 2.2rem; }
-      .hero-id { margin-bottom: 2rem; }
+      .hero { padding: 2.5rem 1.5rem 2rem; }
+      .hero h1 { font-size: 2.15rem; }
+      .hero-id { margin-bottom: 1.6rem; }
       .philosophy-band .inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .philosophy-photo { max-width: 320px; margin: 0 auto; aspect-ratio: 4/3; }
-      .section-narrow { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .section-narrow, .section-wide, .response { padding-left: 1.5rem; padding-right: 1.5rem; }
       .philosophy-band { padding: 3.5rem 1.5rem; }
+      .stall-band { padding: 3rem 0 3.5rem; }
       .cta-section { padding: 2rem 1.5rem; }
-      .situation { padding-left: 1.2rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; align-items: center; }
       .footer-legal { text-align: center; }
     }
@@ -174,7 +183,7 @@
       <div class="wordmark">Symbiosis Leadership</div>
       <div class="nav-links">
         <a href="#work">How I work</a>
-        <a href="#ways">Ways to work</a>
+        <a href="#ways">Work together</a>
         <a href="#background">Background</a>
         <a href="#connect">Connect</a>
         <a href="/retreat" class="nav-highlight">Retreat to Progress →</a>
@@ -183,9 +192,6 @@
   </nav>
 
   <!-- HERO -->
-  <!-- COPY: philosophy headline ("Strive together. Thrive together.") replaced
-       with a line of recognition. The philosophy now appears further down,
-       after the reader knows what the work is. -->
   <section class="hero">
     <div class="hero-id">
       <img src="Alex-speaker.png" alt="Alexander Schmidt">
@@ -194,64 +200,60 @@
         <div class="role">Founder, Symbiosis Leadership AB</div>
       </div>
     </div>
-    <h1>You've done the part<br>you could do alone.</h1>
+    <h1>For the work that<br>can't be done alone.</h1>
     <p class="lead">
-      I work with sustainability and climate leaders in large organizations when the obvious answers are gone. I don't arrive with a solution to sell. I work alongside you until you have a response you can defend in your own organization.
+      I work with sustainability and climate leaders in large organizations when the obvious answers are gone. Challenges beyond targets and measurement require solutions beyond frameworks and dashboards. I help you find them.
     </p>
     <div class="hero-cta">
       <a href="https://cal.com/schmidt-alexander-dr/discovery" target="_blank" rel="noopener" class="btn btn-primary">Book a conversation</a>
     </div>
   </section>
 
-  <!-- SITUATIONS -->
-  <section class="section-narrow section-pad" id="situations">
-    <span class="section-label">Where you are</span>
-    <h2>The moment that progress stalls</h2>
-    <div class="situations">
-      <div class="situation">
-        <p><strong>The easy wins are done, and you did them well.</strong> Targets are in place and dashboards full of data. Neither is telling you what to do next. Meanwhile your CFO wants the business case in one number before budget season, red pencil already out over next year's headcount. There is no one-number answer you can give.</p>
-      </div>
-      <div class="situation">
-        <p><strong>Your industry is stuck in a prisoner's dilemma.</strong> Every next step looks unreasonable if you take it alone. Cut one color from next season's line and you cut overproduction, but also your sales. Your CSO is pleased. Your investors and your customers are not.</p>
-      </div>
-      <div class="situation">
-        <p><strong>Your platform, standard, or protocol can make a difference,</strong> and you want it to matter beyond your own P&amp;L. Building it is the easy part. The hard part is who needs to be around the table to test it, break it, and launch it with you.</p>
-      </div>
-      <div class="situation">
-        <p><strong>Every next announcement feels like a trap.</strong> Publishing progress invites scrutiny, publishing a miss invites schadenfreude. So the incentive is to game the number or quietly lower the ambition. You can see the race to the bottom. You can't see the way out.</p>
+  <!-- STALL POINTS + RESPONSE -->
+  <div class="stall-band" id="work">
+    <div class="section-wide">
+      <h2>When your progress begins to stall</h2>
+      <div class="tiles">
+        <div class="tile">
+          <p><strong>Moving past the fundamentals.</strong> Your targets and data no longer tell you what to do next. But your CFO will want the business case, red pencil already out.</p>
+        </div>
+        <div class="tile">
+          <p><strong>Escaping the prisoner's dilemma.</strong> Every next step only pays off if others move too. Drop one color from next season's line and overproduction falls, but so do sales.</p>
+        </div>
+        <div class="tile">
+          <p><strong>Scaling for impact.</strong> Alone, your platform, standard, or protocol won't matter beyond your own P&amp;L. The hard part is who needs to be around the table to test it, break it, and launch it with you.</p>
+        </div>
+        <div class="tile">
+          <p><strong>Executing with integrity.</strong> Publishing progress invites scrutiny, publishing a miss invites schadenfreude. So the incentive is to game the number or quietly lower the ambition.</p>
+        </div>
       </div>
     </div>
-  </section>
 
-  <div class="divider"><hr></div>
+    <div class="response">
+      <h2>That's where our work begins</h2>
+      <p>
+        Here's where I often meet leaders, in one of these moments of stagnation. And the part that usually surprises them when we first speak is what I don't do. So let me say it upfront: I won't tell you how to solve it.
+      </p>
+      <p>
+        In my experience the person with the problem already holds most of the answer. It's just buried under time pressure, obscured by incomplete information, and seemingly inaccessible when viewed from within.
+      </p>
+      <p>
+        My work is to create the conditions under which the answer can surface. That takes systems thinking, and it ends in a decision you can act on.
+      </p>
+      <!-- COPY: the four-domain list that used to sit here was cut. It appears
+           in full in the Background section and reading it twice on one page
+           was expensive on a page optimised for less scrolling. -->
+      <p>
+        Beyond that, I bring my own technical background. When your problem sits in carbon accounting, traceability, or climate finance, I can go deep with you. When it hinges on who else needs to be in the room, I usually know them.
+      </p>
+    </div>
+  </div>
 
-  <!-- HOW I WORK -->
-  <section class="section-narrow section-pad" id="work">
-    <span class="section-label">How I work</span>
-    <h2>This is where our work begins</h2>
-    <p>
-      The part that usually surprises leaders when we first speak is what I don't do. So let me say it upfront: I won't tell you how to solve it.
-    </p>
-    <p>
-      In my experience the person with the problem already holds most of the answer, but it's buried under time pressure, obscured by incomplete information, and seemingly inaccessible when viewed from within.
-    </p>
-    <p>
-      My work is to create the conditions under which the answer surfaces. It goes beyond listening and asking what you think you should do. It's systems thinking that turns reflection into a decision you can act on.
-    </p>
-    <p>
-      I bring my own material to that process: applied work in carbon accounting, supply chain ESG traceability, climate finance, and standards governance. When your problem is technical I can go deep with you. When it hinges on who else needs to be in the room, I usually know them. But always the counsel comes first.
-    </p>
-    <p>
-      Two more things I don't do, besides presenting you a solution in a flashy slide deck: acting as the extended sales arm for a single solution provider, and project management that someone else could do just as well.
-    </p>
-  </section>
-
-  <!-- WAYS TO WORK TOGETHER -->
-  <section class="section-narrow section-pad" id="ways" style="padding-top: 0;">
-    <span class="section-label">Ways to work together</span>
-    <h2>Three doors, one conversation</h2>
-    <p>
-      Which one fits is usually clear within half an hour of talking. It is not a decision you need to make before getting in touch.
+  <!-- HOW WE WORK TOGETHER -->
+  <section class="section-wide section-pad" id="ways">
+    <h2>How we work together</h2>
+    <p style="color: var(--text-light);">
+      Which of these fits is usually clear within half an hour of talking. It's not something you need to decide before getting in touch.
     </p>
     <div class="offerings">
       <div class="offering-card">
@@ -265,25 +267,31 @@
       <div class="offering-card">
         <h3>Retreat to Progress</h3>
         <p>A three-day program for five to eight peers from different organizations, curated around a shared problem. Closed door, by invitation, with follow-through built in.</p>
-        <!-- DATES: removed September 2026. The cohort is invite-only and dates
-             are set around participants' availability, so a fixed window was
-             both inaccurate and a maintenance problem. -->
+        <!-- DATES: removed. The cohort is invite-only and dates are set around
+             participants' availability, so a fixed window was both inaccurate
+             and a maintenance problem. -->
         <div class="card-meta">5–8 leaders · 3 days residential · Swedish west coast · By invitation</div>
         <a href="/retreat" class="card-link">Learn more</a>
       </div>
     </div>
+    <p class="offerings-note">
+      As important as what I do is what I don't: acting as the extended sales arm for a single solution provider, and project management that someone else could do just as well.
+    </p>
+    <!-- CTA: repeated here rather than only at the foot of the page. Someone who
+         has read the three options and the exclusions is at the point of
+         deciding, and the alternative considered, making the first two cards
+         clickable, would have given three identical-looking cards three
+         different behaviours with nothing to signal which. -->
+    <div class="offerings-cta">
+      <a href="https://cal.com/schmidt-alexander-dr/discovery" target="_blank" rel="noopener" class="btn btn-primary">Book a conversation</a>
+    </div>
   </section>
 
-  <!-- PHILOSOPHY -->
+  <!-- SYMBIOTIC LEADERSHIP -->
   <div class="philosophy-band" id="philosophy">
     <div class="inner">
       <div class="philosophy-content">
-        <span class="section-label">Symbiotic Leadership</span>
-        <h2>Why this works, and why it's different</h2>
-        <!-- COPY: the "separate ledgers / the bill is arriving" opener was cut.
-             The reader this page is written for has read that paragraph a
-             hundred times, and it was the one place the page risked sounding
-             generic to them. Starts at the definition instead. -->
+        <h2>Symbiotic Leadership</h2>
         <blockquote>
           Symbiotic Leadership means recognizing that none of us will be well if the planet is not. It's a shift from extractive to generative, in how we think, lead, and create value.
         </blockquote>
@@ -291,7 +299,7 @@
           It is not a call to renounce ambition. It is a return to the original meaning of competition: <em>com-petere</em>, to strive together. The change starts ground-up, with leaders who have the humility to admit they don't have all the answers alone, and the courage to find them together.
         </p>
         <p>
-          That's also why the four situations above tend to resist ordinary consulting. Each one is a coordination problem disguised as a strategy problem.
+          That's also why the situations at the top of this page resist ordinary consulting. Each one is a coordination problem disguised as a strategy problem.
         </p>
       </div>
       <div class="philosophy-photo">
@@ -355,7 +363,7 @@
       <p>
         Let's start with 25 minutes together. No agenda beyond your situation. If I'm not the right person, we'll know quickly, and I'll point you to someone who is.
       </p>
-      <a href="https://cal.com/schmidt-alexander-dr/discovery" target="_blank" rel="noopener" class="btn btn-primary">Book a time</a>
+      <a href="https://cal.com/schmidt-alexander-dr/discovery" target="_blank" rel="noopener" class="btn btn-primary">Book a conversation</a>
       <p class="cta-alt">
         or write to <a href="mailto:alexander@symbiosisleadership.com">alexander@symbiosisleadership.com</a>
       </p>
