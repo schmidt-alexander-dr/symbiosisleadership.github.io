@@ -29,8 +29,8 @@
       --display: 'DM Serif Display', Georgia, serif;
       --sans: 'Inter', -apple-system, 'Segoe UI', sans-serif;
       --letter: Georgia, 'Times New Roman', serif;
-      --col: 700px;
-      --wide: 1040px;
+      --col: 780px;    /* homepage reading column (--max-w) */
+      --wide: 1080px;  /* homepage frame (--max-w-wide): nav only */
       --gutter: clamp(1.25rem, 5vw, 2.5rem);
     }
 
@@ -50,11 +50,10 @@
     strong { font-weight: 500; }
     em { font-style: italic; }
 
-    /* LAYOUT: everything hangs from one left edge and shares one column
-       width: text, facts row and photographs alike. Only nav and footer use
-       the full frame. No alternating image/text bands, nothing centred. */
-    .col, .wide { max-width: calc(var(--wide) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
-    .col > *, .wide > * { max-width: var(--col); }
+    /* LAYOUT: matches the homepage. The nav spans the 1080px frame; every
+       content block (text, facts row, photographs, footer) shares the same
+       780px column, centred on the page. Text inside it stays left-aligned. */
+    .col, .wide { max-width: calc(var(--col) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
 
     /* NAV */
     nav {
@@ -93,7 +92,7 @@
       line-height: 1.25; color: var(--ink);
       max-width: 22em; margin-bottom: 1.8rem; text-wrap: balance;
     }
-    .lead { font-size: 1.1rem; max-width: 36em; }
+    .lead { font-size: 1.1rem; }
     .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.5rem; margin-top: 2.2rem; }
     .btn {
       display: inline-block; background: var(--accent-ink); color: #fff;
@@ -125,7 +124,6 @@
       font-size: clamp(1.75rem, 4vw, 2.35rem); line-height: 1.2;
       margin-bottom: 1.4rem; max-width: 18em; text-wrap: balance;
     }
-    .col p { max-width: 38em; }
     .col p + p { margin-top: 1.1rem; }
 
     /* TAKE-HOME: rows, not cards. Serif term on the left, text on the right,
@@ -143,9 +141,23 @@
     .photo.wide-crop .frame { aspect-ratio: 16 / 8; }
     .photo img { width: 100%; height: 100%; object-fit: cover; }
 
+    /* SETTING BAND: mirrors the homepage philosophy band. Heading in light
+       ink, all body paragraphs one colour. No bordered quote. */
+    .setting-band { background: #2B3029; margin-top: clamp(3.5rem, 9vw, 6rem); padding: clamp(3.5rem, 9vw, 5rem) var(--gutter); }
+    .setting-inner {
+      max-width: var(--wide); margin: 0 auto;
+      display: grid; grid-template-columns: 1.3fr 1fr; gap: 3.5rem; align-items: center;
+    }
+    .setting-text h2 { color: #E8E4DB; }
+    .setting-text p { color: #C9C4B8; }
+    .setting-text p + p { margin-top: 1.1rem; }
+    .setting-photo { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 3px; }
+    .setting-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .setting-band a:focus-visible { outline-color: #E8E4DB; }
+
     /* LETTER: the personal centrepiece. Warm paper, Georgia, set like a note
        rather than a quote block. */
-    .letter-band { background: var(--paper-warm); margin-top: clamp(3.5rem, 9vw, 6rem); padding: clamp(3.5rem, 9vw, 5.5rem) 0; }
+    .letter-band { background: var(--paper-warm); margin-top: 0; padding: clamp(3.5rem, 9vw, 5.5rem) 0; }
     .letter { font-family: var(--letter); font-size: 1.12rem; line-height: 1.8; font-weight: 400; }
     .letter p + p { margin-top: 1.15rem; }
     .letter .beat { margin-top: 1.6rem; }
@@ -171,7 +183,7 @@
     /* FOOTER: same content and legal line as the homepage. */
     footer { border-top: 1px solid var(--rule); }
     .footer-inner {
-      max-width: calc(var(--wide) + 2 * var(--gutter)); margin: 0 auto; padding: 2rem var(--gutter);
+      max-width: calc(var(--col) + 2 * var(--gutter)); margin: 0 auto; padding: 2rem var(--gutter);
       display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem;
       font-size: 0.78rem; color: var(--ink-soft); line-height: 1.7;
     }
@@ -186,6 +198,8 @@
       .nav-links a:not(.nav-book) { display: none; }
       .facts { grid-template-columns: 1fr 1fr; }
       .takeaway, .practical div { grid-template-columns: 1fr; }
+      .setting-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .setting-photo { aspect-ratio: 4 / 3; }
       .hero-photo .frame { aspect-ratio: 4 / 3; }
       .photo .frame, .photo.wide-crop .frame { aspect-ratio: 4 / 3; }
       .footer-inner { flex-direction: column; }
@@ -218,7 +232,7 @@
       <div class="wide">
         <p class="parent">A program of <a href="/">Symbiosis Leadership</a></p>
         <h1>Retreat to Progress</h1>
-        <p class="promise">Honest conversation for the work that can&rsquo;t be done alone.</p>
+        <p class="promise">Space for the work that can&rsquo;t be done alone.</p>
         <p class="lead">
           Five to eight sustainability and climate leaders from different organizations, three days away together, around a problem no single organization can solve. You leave with next moves for your own situation, commitments that stick because you won&rsquo;t be following through on your own, and a handful of people to call when it gets hard.
         </p>
@@ -297,8 +311,12 @@
     </section>
 
     <!-- HOW IT RUNS -->
-    <section class="section" id="how">
-      <div class="col">
+    <!-- HOW IT RUNS: the one two-column band on the page, same treatment as
+         the Symbiotic Leadership band on the homepage (deep tone, text left,
+         tall photo right, full 1080px frame). Used once only, on purpose. -->
+    <section class="setting-band" id="how">
+      <div class="setting-inner">
+        <div class="setting-text">
         <h2>Outside the structures that make honesty hard</h2>
         <p>
           Each cohort forms around a shared problem space: five to eight senior leaders with the mandate to act, willing to say the thing they can&rsquo;t say inside their own organization. The group is curated so the conversation stays pre-competitive. The Chatham House rule applies throughout, everyone signs a participation agreement before arriving, and corporate badges stay at the door.
@@ -312,13 +330,11 @@
         <p>
           I host, usually together with a co-convener from the cohort&rsquo;s own field. My job is to hold the structure and keep the conversation honest. What to do about your problem stays yours to decide, with help from people who know it from the inside.
         </p>
-      </div>
-
-      <figure class="col photo">
-        <div class="frame">
-          <img src="aaron-blanco-tejedor-aocUkMcxeqI-unsplash.jpg" alt="People in conversation outdoors">
         </div>
-      </figure>
+        <figure class="setting-photo">
+          <img src="aaron-blanco-tejedor-aocUkMcxeqI-unsplash.jpg" alt="People in conversation outdoors">
+        </figure>
+      </div>
     </section>
 
     <!-- WHY I BUILT THIS -->
