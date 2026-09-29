@@ -82,10 +82,15 @@
     .parent a:hover { border-bottom-color: var(--accent-ink); }
     h1 {
       font-family: var(--display); font-weight: 400;
-      font-size: clamp(3.1rem, 9.5vw, 5.6rem);
+      font-size: clamp(2.6rem, 8.5vw, 5.2rem);
       line-height: 1.0; letter-spacing: -0.015em;
       margin-bottom: 1.1rem;
+      text-wrap: balance;
     }
+    /* The program name stays on one line wherever the column is wide enough
+       for it (measured at about 7.3em in DM Serif Display, so 5.2rem needs
+       roughly 650px). Below 760px it may wrap, balanced. */
+    @media (min-width: 761px) { h1 { white-space: nowrap; } }
     .promise {
       font-family: var(--display); font-weight: 400;
       font-size: clamp(1.45rem, 3.4vw, 2rem);
