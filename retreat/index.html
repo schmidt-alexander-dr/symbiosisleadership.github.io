@@ -2,693 +2,405 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A small-cohort intensive for sustainability leaders stuck between their commitments and what actually changes on the ground.">
-  <title>Retreat to Progress — Symbiosis Leadership</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retreat to Progress · Symbiosis Leadership</title>
+  <meta name="description" content="Retreat to Progress brings five to eight sustainability and climate leaders from different organizations together for three days, around a problem none of them can solve alone.">
 
+  <!-- FONTS: same families and weights as the homepage. Georgia (system font,
+       no request) is used only for the personal letter, the same body face as
+       the Symbiosis Leadership document template. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ── Reset & base ─────────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* TOKENS: taken from the homepage so the two pages read as one site.
+       --accent-ink is a darker sage for small text and the button, because
+       the homepage sage (#5B7F5E) sits just under 4.5:1 contrast on the paper
+       background at small sizes. */
     :root {
-      --green:      #2D6A4F;
-      --green-mid:  #40916C;
-      --green-lt:   #EBF5EE;
-      --black:      #111111;
-      --grey:       #555555;
-      --grey-lt:    #888888;
-      --rule:       #DDDDDD;
-      --bg:         #FAFAF8;
-      --white:      #FFFFFF;
-      --serif:      'DM Serif Display', Georgia, serif;
-      --sans:       'Inter', -apple-system, sans-serif;
-      --max:        740px;
-      --pad:        clamp(1.5rem, 5vw, 3rem);
+      --paper: #F8F6F1;
+      --paper-warm: #F0EBE1;
+      --ink: #2C2C2C;
+      --ink-soft: #5A5A5A;
+      --sage: #5B7F5E;
+      --accent-ink: #4A6B4D;
+      --rule: #D1CCBF;
+      --display: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+      --letter: Georgia, 'Times New Roman', serif;
+      --col: 700px;
+      --wide: 1040px;
+      --gutter: clamp(1.25rem, 5vw, 2.5rem);
     }
 
-    html { scroll-behavior: smooth; }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 17px; scroll-behavior: smooth; }
     body {
       font-family: var(--sans);
-      font-size: 17px;
-      line-height: 1.65;
-      color: var(--black);
-      background: var(--bg);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--paper);
       -webkit-font-smoothing: antialiased;
     }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; border-radius: 2px; }
+    strong { font-weight: 500; }
+    em { font-style: italic; }
 
-    /* ── Nav ──────────────────────────────────────────────────────────── */
+    /* LAYOUT: everything hangs from one left edge. Text sits in a reading
+       column on the left of the page frame; photographs and the facts row run
+       the full frame width. No alternating image/text bands, nothing centred. */
+    .col, .wide { max-width: calc(var(--wide) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+    .col > * { max-width: var(--col); }
+
+    /* NAV */
     nav {
-      border-bottom: 1px solid var(--rule);
-      padding: 1.1rem var(--pad);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--white);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(248, 246, 241, 0.92);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
     }
-    .nav-brand {
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--grey);
-      text-decoration: none;
-      text-transform: uppercase;
+    .nav-inner {
+      max-width: calc(var(--wide) + 2 * var(--gutter));
+      margin: 0 auto; padding: 1.1rem var(--gutter);
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
     }
-    .nav-brand span { color: var(--green); }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-links a {
-      font-size: 13px;
-      color: var(--grey);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .nav-links a:hover { color: var(--green); }
-    .nav-links a.nav-cta {
-      background: var(--green);
-      color: var(--white);
-      padding: 0.45rem 1rem;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .nav-links a.nav-cta:hover {
-      background: #245940;
-      color: var(--white);
-    }
+    .wordmark { font-family: var(--display); font-size: 1rem; color: var(--sage); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; font-size: 0.85rem; font-weight: 400; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; }
+    .nav-links a:hover { color: var(--accent-ink); }
+    .nav-links a.nav-book { color: var(--accent-ink); font-weight: 500; }
 
-    /* ── Hero ─────────────────────────────────────────────────────────── */
-    .hero {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: clamp(3.5rem, 10vw, 6rem) var(--pad) clamp(2.5rem, 7vw, 4rem);
+    /* HERO: the one loud element on the page is the program name. */
+    .hero { padding-top: clamp(3rem, 9vw, 6.5rem); }
+    .parent {
+      font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1rem;
     }
-    .eyebrow {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 1.2rem;
-    }
+    .parent a { color: var(--accent-ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    .parent a:hover { border-bottom-color: var(--accent-ink); }
     h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.6rem, 7vw, 4.2rem);
-      line-height: 1.1;
-      color: var(--black);
-      margin-bottom: 1.5rem;
+      font-family: var(--display); font-weight: 400;
+      font-size: clamp(3.1rem, 9.5vw, 5.6rem);
+      line-height: 1.0; letter-spacing: -0.015em;
+      margin-bottom: 1.1rem;
     }
-
-    .hero-sub {
-      font-size: 1.15rem;
-      color: var(--grey);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
+    .promise {
+      font-family: var(--display); font-weight: 400;
+      font-size: clamp(1.45rem, 3.4vw, 2rem);
+      line-height: 1.25; color: var(--ink-soft);
+      max-width: 22em; margin-bottom: 1.8rem;
     }
-    .hero-cta {
-      display: inline-block;
-      background: var(--green);
-      color: var(--white);
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      padding: 0.75rem 1.75rem;
-      border-radius: 4px;
-      text-decoration: none;
+    .lead { font-size: 1.1rem; max-width: 36em; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.5rem; margin-top: 2.2rem; }
+    .btn {
+      display: inline-block; background: var(--accent-ink); color: #fff;
+      font-family: var(--sans); font-size: 0.92rem; font-weight: 500;
+      padding: 0.8rem 1.6rem; border-radius: 6px; text-decoration: none;
       transition: background 0.2s;
     }
-    .hero-cta:hover { background: #245940; }
-    .hero-rule {
-      border: none;
+    .btn:hover { background: #3C5A3F; }
+    .text-link { font-size: 0.92rem; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    .text-link:hover { color: var(--accent-ink); border-bottom-color: var(--accent-ink); }
+
+    /* FACTS: what a busy reader checks first, as a small definition list. */
+    .facts {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem 2rem;
+      margin-top: clamp(2.5rem, 6vw, 3.5rem); padding-top: 1.4rem;
       border-top: 1px solid var(--rule);
-      margin: clamp(2.5rem, 6vw, 4rem) 0 0;
     }
+    .facts dt { font-size: 0.8rem; color: var(--accent-ink); font-weight: 500; }
+    .facts dd { font-size: 0.95rem; line-height: 1.5; }
 
-    /* ── Sections ─────────────────────────────────────────────────────── */
-    section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: clamp(2.5rem, 7vw, 4.5rem) var(--pad);
-      border-bottom: 1px solid var(--rule);
-    }
-    section:last-of-type { border-bottom: none; }
+    .hero-photo { margin-top: clamp(2.5rem, 6vw, 3.5rem); }
+    .hero-photo .frame { aspect-ratio: 16 / 7; overflow: hidden; border-radius: 3px; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
 
-    /* FIX 1: width: fit-content ensures the underline border tracks
-       the text width of the label rather than stretching to the width
-       of its container. display: inline-block alone will stretch to
-       fill a flex or grid cell. */
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 1.4rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--green);
-      display: inline-block;
-      width: fit-content;
-    }
-
+    /* SECTIONS */
+    .section { padding: clamp(3.5rem, 9vw, 6rem) 0 0; }
     h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      line-height: 1.2;
-      color: var(--black);
-      margin-bottom: 1.2rem;
+      font-family: var(--display); font-weight: 400;
+      font-size: clamp(1.75rem, 4vw, 2.35rem); line-height: 1.2;
+      margin-bottom: 1.4rem; max-width: 18em;
+    }
+    .col p { max-width: 38em; }
+    .col p + p { margin-top: 1.1rem; }
+    .soft { color: var(--ink-soft); }
+
+    /* TAKE-HOME: rows, not cards. Serif term on the left, text on the right,
+       a hairline between rows. No fills, no side borders. */
+    .takeaways { margin-top: 2.2rem; border-top: 1px solid var(--rule); }
+    .takeaway {
+      display: grid; grid-template-columns: 11rem 1fr; gap: 0.3rem 2rem;
+      padding: 1.25rem 0; border-bottom: 1px solid var(--rule);
+    }
+    .takeaway h3 { font-family: var(--display); font-weight: 400; font-size: 1.2rem; line-height: 1.35; }
+    .takeaway p { margin: 0; max-width: none; }
+
+    .photo { margin-top: clamp(3.5rem, 9vw, 6rem); }
+    .photo .frame { aspect-ratio: 3 / 2; overflow: hidden; border-radius: 3px; }
+    .photo.wide-crop .frame { aspect-ratio: 16 / 8; }
+    .photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* LETTER: the personal centrepiece. Warm paper, Georgia, set like a note
+       rather than a quote block. */
+    .letter-band { background: var(--paper-warm); margin-top: clamp(3.5rem, 9vw, 6rem); padding: clamp(3.5rem, 9vw, 5.5rem) 0; }
+    .letter { font-family: var(--letter); font-size: 1.12rem; line-height: 1.8; font-weight: 400; }
+    .letter p + p { margin-top: 1.15rem; }
+    .letter .beat { margin-top: 1.6rem; }
+    .signoff { display: flex; align-items: center; gap: 1rem; margin-top: 2.2rem; }
+    .signoff img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; object-position: center top; }
+    .signoff .sig { font-family: var(--display); font-size: 1.5rem; line-height: 1.1; color: var(--ink); }
+    .signoff .who { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: var(--ink-soft); line-height: 1.45; }
+
+    /* PRACTICALITIES */
+    .practical { margin-top: 1.6rem; }
+    .practical div { padding: 1.1rem 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 11rem 1fr; gap: 0.3rem 2rem; }
+    .practical div:last-child { border-bottom: 1px solid var(--rule); }
+    .practical dt { font-family: var(--display); font-size: 1.2rem; line-height: 1.35; }
+    .practical dd { margin: 0; }
+
+    /* CONTACT */
+    .contact { padding-bottom: clamp(3.5rem, 9vw, 6rem); }
+    .contact .actions { margin-top: 1.8rem; }
+    .privacy { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.6; margin-top: 1.6rem; max-width: 34em; }
+    .privacy a { text-decoration: underline; text-underline-offset: 2px; }
+    .privacy a:hover { color: var(--accent-ink); }
+
+    /* FOOTER: same content and legal line as the homepage. */
+    footer { border-top: 1px solid var(--rule); }
+    .footer-inner {
+      max-width: calc(var(--wide) + 2 * var(--gutter)); margin: 0 auto; padding: 2rem var(--gutter);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem;
+      font-size: 0.78rem; color: var(--ink-soft); line-height: 1.7;
+    }
+    .footer-inner a { text-decoration: none; }
+    .footer-inner a:hover { color: var(--accent-ink); }
+    .footer-legal { display: flex; flex-direction: column; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.4rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 760px) {
+      html { font-size: 16px; }
+      .nav-links a:not(.nav-book) { display: none; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .takeaway, .practical div { grid-template-columns: 1fr; }
+      .hero-photo .frame { aspect-ratio: 4 / 3; }
+      .photo .frame, .photo.wide-crop .frame { aspect-ratio: 4 / 3; }
+      .footer-inner { flex-direction: column; }
     }
 
-    p { color: var(--grey); margin-bottom: 1rem; }
-    p:last-child { margin-bottom: 0; }
-
-    strong { color: var(--black); font-weight: 600; }
-
-    /* FIX 2: extracted from the two inline <h3 style="..."> elements
-       that previously had inconsistent margin values baked in.
-       Apply class="section-h3" to any serif sub-heading inside a section. */
-    h3.section-h3 {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      color: var(--black);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
     }
-
-    /* ── Pull quote ───────────────────────────────────────────────────── */
-    .pull-quote {
-      border-left: 3px solid var(--green);
-      background: var(--green-lt);
-      padding: 1.4rem 1.6rem;
-      margin: 2rem 0;
-      border-radius: 0 4px 4px 0;
-    }
-    .pull-quote p {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--black);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* ── Profile list ─────────────────────────────────────────────────── */
-    .profile-list {
-      margin-top: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    /* FIX 2: removed font-size: 15px — now inherits 17px from body,
-       matching all other body-level text blocks. */
-    .profile-bullet {
-      display: flex;
-      gap: 0.75rem;
-      align-items: flex-start;
-      color: var(--grey);
-      line-height: 1.55;
-    }
-    .pb-check {
-      color: var(--green);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 0.05rem;
-    }
-
-    /* ── Leave-with cards ─────────────────────────────────────────────── */
-    .leave-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    @media (max-width: 600px) { .leave-grid { grid-template-columns: 1fr; } }
-
-    .leave-card {
-      background: var(--green-lt);
-      border-radius: 6px;
-      padding: 1.3rem 1.2rem;
-      border-left: 3px solid var(--green);
-    }
-    .leave-card h3 {
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--green);
-      margin-bottom: 0.5rem;
-    }
-    .leave-card p {
-      font-size: 13px;
-      color: var(--grey);
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    /* ── Practicalities / two-column grid ─────────────────────────────── */
-    .prac-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem 2.5rem;
-      margin-top: 1.5rem;
-    }
-    @media (max-width: 520px) { .prac-grid { grid-template-columns: 1fr; } }
-
-    .prac-item h4 {
-      font-family: var(--sans);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 0.4rem;
-    }
-    .prac-item p { font-size: 14px; color: var(--grey); }
-
-    /* ── Contact block ────────────────────────────────────────────────── */
-    /* Replaces the former Formspree form. No third-party processor, no
-       stored submissions, no third-country transfer, nothing collected
-       by this page and nothing written to the visitor's device. */
-    .contact-wrap {
-      background: var(--white);
-      border: 1px solid var(--rule);
-      border-radius: 8px;
-      padding: clamp(1.5rem, 4vw, 2.5rem);
-      margin-top: 1.5rem;
-    }
-    .contact-ask {
-      background: var(--green-lt);
-      border-left: 3px solid var(--green);
-      border-radius: 0 4px 4px 0;
-      padding: 1.1rem 1.3rem;
-      margin-bottom: 1.5rem;
-    }
-    .contact-ask p {
-      font-size: 15px;
-      color: var(--grey);
-      line-height: 1.6;
-      margin-bottom: 0.6rem;
-    }
-    .contact-ask p:last-child { margin-bottom: 0; }
-    .contact-btn {
-      display: block;
-      background: var(--green);
-      color: var(--white);
-      text-align: center;
-      text-decoration: none;
-      padding: 0.85rem 1.5rem;
-      font-family: var(--sans);
-      font-size: 15px;
-      font-weight: 600;
-      border-radius: 4px;
-      transition: background 0.2s;
-      word-break: break-word;
-    }
-    .contact-btn:hover { background: #245940; color: var(--white); }
-    .privacy-note {
-      font-size: 12px;
-      color: var(--grey-lt);
-      text-align: center;
-      margin-top: 0.9rem;
-      line-height: 1.55;
-    }
-    /* Link inherits the small grey note styling rather than jumping to
-       green mid-sentence. The underline carries the affordance. */
-    .privacy-note a {
-      color: var(--grey-lt);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    .privacy-note a:hover { color: var(--green); }
-
-    /* ── Footer ───────────────────────────────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 2rem var(--pad);
-      text-align: center;
-      font-size: 13px;
-      color: var(--grey-lt);
-      line-height: 1.7;
-    }
-    footer a { color: var(--green); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    footer p + p { margin-top: 0.6rem; }
-    .footer-legal { color: var(--grey-lt); }
-
-    /* ── Hero image wrapper (FIX 4 & 5) ──────────────────────────────── */
-    /* FIX 4: constrains the hero image to the same column width as all
-       other content, so the eye does not have to jump on scroll.
-       FIX 5: the aspect-ratio box + overflow:hidden on the wrapper,
-       combined with width/height:100% + object-fit:cover on the img,
-       is the reliable cross-browser fix for the distorted image.
-       Setting aspect-ratio and max-height directly on <img> conflicts
-       across browsers, preventing object-fit from engaging correctly. */
-    .hero-img-wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 var(--pad);
-    }
-    .hero-img-box {
-      aspect-ratio: 16 / 7;
-      overflow: hidden;
-      border-radius: 6px;
-    }
-    .hero-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 50%;
-      display: block;
-    }
-
-    /* ── Side-by-side image + text bands (FIX 3 & 4) ─────────────────── */
-    /* FIX 3: img-band now matches the exact width, margin, and padding
-       of a <section>, so every content block shares the same horizontal
-       rhythm as you scroll.
-       FIX 4: images stay inside the text column — no viewport-width
-       interruptions, no left-right-left eye movement. */
-    .img-band {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: clamp(2.5rem, 7vw, 4.5rem) var(--pad);
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-    }
-
-    /* The two-column grid lives inside the constrained band. */
-    .img-band-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    /* FIX 3: column reversal via CSS order instead of direction:rtl,
-       which avoids RTL text-direction side-effects on content. */
-    .img-band.flip .img-band-photo { order: 2; }
-
-    .img-band-photo {
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-    }
-    .img-band-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .img-band-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .img-band-text .section-label { margin-bottom: 1rem; }
-    .img-band-text h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); margin-bottom: 1rem; }
-    /* 15px kept intentionally: these paragraphs sit in an approx. 330px
-       column at max container width. 17px body copy feels dense at that
-       measure; this is a deliberate column-context difference, not an
-       inconsistency. */
-    .img-band-text p { font-size: 15px; color: var(--grey); line-height: 1.7; margin-bottom: 0.8rem; }
-    .img-band-text p:last-child { margin-bottom: 0; }
-
-    @media (max-width: 640px) {
-      .img-band-inner { grid-template-columns: 1fr; }
-      /* Reset order: photo always stacks above text on mobile. */
-      .img-band.flip .img-band-photo { order: 0; }
-      .img-band-photo { aspect-ratio: 16 / 9; }
-    }
-
-    /* ── Personal statement ───────────────────────────────────────────── */
-    .statement-photo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1.8rem;
-    }
-    .statement-photo img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--green-lt);
-      flex-shrink: 0;
-    }
-    .statement-byline {
-      font-size: 13px;
-      color: var(--grey);
-      line-height: 1.4;
-    }
-    .statement-byline strong {
-      display: block;
-      font-size: 14px;
-      color: var(--black);
-    }
-    /* FIX 2: removed font-size: 1.05rem — now inherits 17px from body,
-       matching body paragraphs across all other sections. */
-    .statement-text p {
-      font-family: var(--serif);
-      font-style: italic;
-      color: var(--black);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-    .statement-text p:last-child { margin-bottom: 0; }
-    .statement-text .sig {
-      font-family: var(--sans);
-      font-style: normal;
-      font-weight: 600;
-      color: var(--green);
-      margin-top: 1.2rem;
-    }
-
-    /* ── Animations ───────────────────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero > * { animation: fadeUp 0.6s ease both; }
-    .hero .eyebrow  { animation-delay: 0.05s; }
-    .hero h1        { animation-delay: 0.15s; }
-    .hero .hero-sub { animation-delay: 0.25s; }
-    .hero .hero-cta { animation-delay: 0.35s; }
   </style>
 </head>
 
 <body>
 
-  <!-- Nav -->
   <nav>
-    <a href="https://symbiosisleadership.com" class="nav-brand">Symbiosis <span>Leadership</span></a>
-    <div class="nav-links">
-      <a href="#why">Why this exists</a>
-      <a href="#different">What makes this different</a>
-      <a href="#apply" class="nav-cta">Get in touch</a>
+    <div class="nav-inner">
+      <a href="/" class="wordmark">Symbiosis Leadership</a>
+      <div class="nav-links">
+        <a href="#take-home">What you take home</a>
+        <a href="#how">How it runs</a>
+        <a href="https://cal.com/schmidt-alexander-dr/discovery" target="_blank" rel="noopener" class="nav-book">Book a conversation</a>
+      </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="eyebrow">A program of Symbiosis Leadership AB</div>
-    <h1>Retreat to Progress</h1>
-    <!-- FIX 6: em dash replaced with comma -->
-    <p class="hero-sub">
-      Three days. A handful of people. Honest conversations. About the change you seek to make, and what&rsquo;s actually in the way.
-    </p>
-    <a href="#apply" class="hero-cta">Express interest</a>
-    <hr class="hero-rule">
-  </div>
+  <main>
 
-  <!-- FIX 4 & 5: hero image constrained to text column width.
-       Wrapper controls dimensions; img fills it with object-fit:cover. -->
-  <div class="hero-img-wrap">
-    <div class="hero-img-box">
-      <img
-        src="maja-hurtigh-cysFRA6_iOo-unsplash.jpg"
-        alt="The Swedish west coast, granite, sea, and open sky"
-      >
-    </div>
-  </div>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="wide">
+        <p class="parent">A program of <a href="/">Symbiosis Leadership</a></p>
+        <h1>Retreat to Progress</h1>
+        <p class="promise">The conversation you can&rsquo;t have inside your own organization.</p>
+        <p class="lead">
+          Five to eight sustainability and climate leaders from different organizations, three days away together, around a problem none of them can solve alone. You leave with next moves for your own situation, commitments your peers will hold you to, and a handful of people to call when it gets hard.
+        </p>
+        <div class="actions">
+          <a href="https://cal.com/schmidt-alexander-dr/discovery" target="_blank" rel="noopener" class="btn">Book a conversation</a>
+          <a href="#contact" class="text-link">or write to me</a>
+        </div>
 
-  <!-- Why this exists -->
-  <section id="why">
-    <div class="section-label">Why this exists</div>
-    <h2>You&rsquo;ve made the commitments. Now comes the harder part.</h2>
-    <p>
-      If sustainability, climate, or building a genuinely regenerative business sits at the center of how you lead, you already know the mandate, the targets, and the public commitments are the easy part. What comes after is harder: keeping your conviction intact through reorganizations, budget pressure, and a ground that won&rsquo;t stop shifting.
-    </p>
-    <div class="pull-quote">
-      <p>
-        The breakthroughs you&rsquo;re after won&rsquo;t come from another framework, seminar, or mingle. They come from honest conversation and exchange with people carrying the same weight.
-      </p>
-    </div>
-    <p>
-      Three days of exactly that, in a space dedicated to the work you care about most, and what&rsquo;s really in the way of it.
-    </p>
-  </section>
+        <dl class="facts">
+          <div><dt>Cohort</dt><dd>5&ndash;8 senior leaders</dd></div>
+          <div><dt>Format</dt><dd>3 days, residential</dd></div>
+          <div><dt>Location</dt><dd>Set with each cohort</dd></div>
+          <div><dt>Places</dt><dd>By invitation</dd></div>
+        </dl>
+      </div>
 
-  <!-- Why I built this -->
-  <section id="story">
-    <div class="section-label">Why I built this</div>
-    <div class="statement-text">
-      <p>At one of the UN COPs I was early for an evening reception, wandering the rooms of an inappropriately luxurious villa. Another guest was equally lost, and with time to kill we started talking. Knowing nothing about each other&rsquo;s organizations, we went straight to what each of us believed was truly at the heart of the environmental crisis. We&rsquo;ve worked together for over two years since, in a non-profit built around the structural deficits we named that evening.</p>
-      <p>It happened again at a climate summit, at a packed restaurant where a stranger let us join his table. He ran the local office of a major financial institution and had nothing to do with the summit. What he told me from inside that industry changed my mind about why things stay stuck, and how they get unstuck. Years later, we&rsquo;re still honest sounding boards for each other.</p>
-      <p>Neither conversation was on any agenda.</p>
-      <p>Room after room, across sectors, organizations, and standards bodies, the pattern held. Committed leaders, with real mandates and a real desire to make a difference, stuck in surface-level conversation. The exchange that mattered happened outside. Accidentally. If you got lucky.</p>
-      <p>What if we designed for these lucky accidents?</p>
-      <p>I want a different kind of space to exist. Retreat to Progress is my attempt at building one.</p>
-      <!-- "— Alex": kept. Em dash in a personal signature is conventional, not an AI writing tic. -->
-      <p class="sig">&#8212; Alex</p>
-    </div>
-    <div class="statement-photo">
-      <img src="../Alex-speaker.png" alt="Dr. Alexander Schmidt">
-      <div class="statement-byline">
-        <strong>Dr. Alexander Schmidt</strong>
-        Founder, Symbiosis Leadership AB
+      <div class="wide hero-photo">
+        <div class="frame">
+          <img src="maja-hurtigh-cysFRA6_iOo-unsplash.jpg" alt="Granite shoreline, sea and open sky on the Swedish west coast">
+        </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- What makes this different -->
-  <section id="different">
-    <div class="section-label">What makes this different</div>
-    <h2>Personal, high-trust, actionable.</h2>
-    <p>
-      Who&rsquo;s in the room, how the three days run, and what continues after. All three are expressions of Symbiotic Leadership: individual thriving, economic performance, and planetary health as one system, not competing priorities.
-    </p>
-    <!-- FIX 2: inline style extracted to h3.section-h3 class -->
-    <h3 class="section-h3">The cohort</h3>
-    <div class="profile-list">
-      <div class="profile-bullet"><span class="pb-check">&#10003;</span><span>Five to eight senior leaders with the mandate to act</span></div>
-      <div class="profile-bullet"><span class="pb-check">&#10003;</span><span>Curated around a shared problem space</span></div>
-      <div class="profile-bullet"><span class="pb-check">&#10003;</span><span>Willing to say the thing they can&rsquo;t say inside their own organization</span></div>
-    </div>
-  </section>
+    <!-- WHY THIS EXISTS -->
+    <section class="section" id="why">
+      <div class="col">
+        <h2>The part that depends on everyone else</h2>
+        <p>
+          You&rsquo;ve set the targets, and the reporting runs. What&rsquo;s left is mostly the part that depends on someone else moving too: a supplier, a competitor, your whole industry. Drop one color from next season&rsquo;s line and overproduction falls, but so do your sales, unless others follow.
+        </p>
+        <p>
+          Those problems rarely get discussed honestly anywhere. Not on a conference panel with pre-approved questions, and not inside your own organization, where the incentives pull the other way.
+        </p>
+        <p>
+          Retreat to Progress puts you at a table with the few people who face the same problem from inside a different company. It runs under rules that make it safe to say what&rsquo;s going on.
+        </p>
+        <p class="soft">
+          This is where <em>Symbiotic Leadership</em>, the thinking behind all my work, starts: individual thriving, economic performance and planetary health are one system. Your company&rsquo;s part of that system rarely moves on its own.
+        </p>
+      </div>
+    </section>
 
-  <!-- FIX 3 & 4: img-band constrained to var(--max) column.
-       .img-band-inner holds the two-column grid inside it.
-       .img-band.flip uses CSS order, not direction:rtl. -->
-  <div class="img-band">
-    <div class="img-band-inner">
-      <div class="img-band-photo">
-        <img src="aaron-blanco-tejedor-aocUkMcxeqI-unsplash.jpg" alt="Leaders in conversation in nature">
-      </div>
-      <div class="img-band-text">
-        <span class="section-label">The Liminal Space</span>
-        <h2>Outside the structures that make honesty hard.</h2>
-        <!-- FIX 6: em dash removed; sentence split into two -->
-        <p>Three days on the Swedish coast, away from boardrooms and inboxes. Corporate badges left at the door. That&rsquo;s what makes honest conversation possible.</p>
-        <p>Cohorts are curated for pre-competitive safety: Chatham House rule throughout, a participation agreement signed before arrival.</p>
-      </div>
-    </div>
-  </div>
+    <!-- WHAT YOU TAKE HOME -->
+    <section class="section" id="take-home">
+      <div class="col">
+        <h2>Built for the months after</h2>
+        <p>
+          Most retreats feel good in the moment and change little afterwards. Retreat to Progress is designed around what happens once you&rsquo;re back at your desk.
+        </p>
 
-  <div class="img-band flip" id="community">
-    <div class="img-band-inner">
-      <div class="img-band-photo">
-        <img src="kimber-E1GGmoCgAVU-unsplash.jpg" alt="A shared table">
+        <div class="takeaways">
+          <div class="takeaway">
+            <h3>Next moves</h3>
+            <p>Specific steps for your situation, tested by people who&rsquo;ve faced the same problem from a different seat.</p>
+          </div>
+          <div class="takeaway">
+            <h3>Commitments</h3>
+            <p>One decision, one experiment, one relationship move. Witnessed by your peers, with a timeline.</p>
+          </div>
+          <div class="takeaway">
+            <h3>Follow-through</h3>
+            <p>A 1:1 check-in within two weeks, and peers you can call when it gets hard, long after the three days.</p>
+          </div>
+          <div class="takeaway">
+            <h3>A shared tool shed</h3>
+            <p>What each cohort works out goes into a shared <em>tool shed</em>, so the next person facing the same problem doesn&rsquo;t start from zero. Gatherings across cohorts are part of the design.</p>
+          </div>
+        </div>
       </div>
-      <div class="img-band-text">
-        <span class="section-label">What continues after</span>
-        <h2>The three days are the beginning.</h2>
-        <p>A community of trusted peers, a 1:1 check-in within two weeks, and regular cross-cohort gatherings keep the work alive. What each cohort works out together goes into a shared tool shed, so the next person facing the same problem doesn&rsquo;t start from zero.</p>
-        <p>Each cohort grows the community.</p>
-      </div>
-    </div>
-  </div>
 
-  <!-- How the days are held + What you take home -->
-  <section id="rhythm">
-    <div class="section-label">How the three days run</div>
-    <h2>Three days. Two rhythms.</h2>
-    <div class="prac-grid">
-      <div class="prac-item">
-        <h4>Unstructured</h4>
-        <p>Time to arrive and connect, shared meals and walks, space for reflections in your own time.</p>
-      </div>
-      <div class="prac-item">
-        <h4>Structured</h4>
-        <p>Sessions shaped by what participants bring, hosted by Alexander Schmidt.</p>
-      </div>
-    </div>
-    <p style="margin-top:1.5rem; font-size:14px; color:var(--grey-lt);">Both by design.</p>
+      <figure class="wide photo wide-crop">
+        <div class="frame">
+          <img src="kimber-E1GGmoCgAVU-unsplash.jpg" alt="A long shared table set for a meal">
+        </div>
+      </figure>
+    </section>
 
-    <!-- FIX 2: inline style extracted to h3.section-h3 class -->
-    <h3 class="section-h3">What you take home</h3>
-    <p>Most retreats feel good in the moment and change little afterwards. Retreat to Progress is built for what happens in the months after.</p>
-    <div class="leave-grid">
-      <div class="leave-card">
-        <h3>New moves</h3>
-        <p>Specific next moves for your actual situation, shaped by people who&rsquo;ve faced the same thing.</p>
+    <!-- HOW IT RUNS -->
+    <section class="section" id="how">
+      <div class="col">
+        <h2>Outside the structures that make honesty hard</h2>
+        <p>
+          Each cohort forms around a shared problem space: five to eight senior leaders with the mandate to act, willing to say the thing they can&rsquo;t say inside their own organization. The group is curated so the conversation stays pre-competitive. The Chatham House rule applies throughout, everyone signs a participation agreement before arriving, and corporate badges stay at the door.
+        </p>
+        <p>
+          I call this a <em>liminal space</em>: in-between ground, outside any one organization&rsquo;s reporting lines, where the full complexity of a problem can be named.
+        </p>
+        <p>
+          The days have two rhythms. Structured sessions are shaped by what participants bring. Unstructured time covers shared meals, walks, and the conversation that carries on after a session ends. In my experience the second rhythm is where the most useful exchange happens, so it gets real time in the schedule.
+        </p>
+        <p>
+          I host, usually together with a co-convener from the cohort&rsquo;s own field. My job is to hold the structure and keep the conversation honest. What to do about your problem stays yours to decide, with help from people who know it from the inside.
+        </p>
       </div>
-      <div class="leave-card">
-        <h3>Tangible commitments</h3>
-        <p>One decision, one experiment, one relationship move. Witnessed by your peers, with a timeline.</p>
-      </div>
-      <div class="leave-card">
-        <h3>A community</h3>
-        <!-- FIX 6: em dash replaced with comma -->
-        <p>A handful of people who know exactly what you&rsquo;re carrying, people you can call when it gets hard, long after the retreat ends.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- Practicalities -->
-  <section id="practicalities">
-    <div class="section-label">Practicalities</div>
-    <!-- FIX 6: em dash replaced with comma -->
-    <h2>Founding cohort, autumn 2026.</h2>
-    <div class="prac-grid">
-      <div class="prac-item">
-        <h4>Dates</h4>
-        <p>September&ndash;October 2026. Final dates set with participants, around the sustainability calendar.</p>
-      </div>
-      <div class="prac-item">
-        <h4>Location</h4>
-        <p>The Bohusl&auml;n coast in western Sweden. Granite, sea, and open sky, within reach of major European hubs.</p>
-      </div>
-      <div class="prac-item">
-        <h4>Investment</h4>
-        <p>Founding cohort places are priced below the standard rate, reflecting the pilot nature of this first gathering. I&rsquo;ll give you the figure in our first conversation. Sponsor-supported places may be available.</p>
-      </div>
-    </div>
-  </section>
+      <figure class="col photo">
+        <div class="frame">
+          <img src="aaron-blanco-tejedor-aocUkMcxeqI-unsplash.jpg" alt="People in conversation outdoors">
+        </div>
+      </figure>
+    </section>
 
-  <!-- Contact. The Formspree form has been removed: no processor, no stored
-       submissions, no third-country transfer, and nothing collected here. -->
-  <section id="apply">
-    <div class="section-label">Founding cohort</div>
-    <!-- FIX 6: em dash replaced with comma -->
-    <h2>If this is the conversation you&rsquo;ve been missing, let&rsquo;s talk.</h2>
-    <p>
-      The founding cohort is being assembled through direct conversation and trusted referral. There&rsquo;s no application process and no form to fill in. Write to me directly.
-    </p>
-    <div class="contact-wrap">
-      <div class="contact-ask">
-        <p>Tell me who you are and where you work. Then one or two sentences on what&rsquo;s actually in the way right now.</p>
-        <p>That last part is what most of our first conversation will be about, and it&rsquo;s how the cohort gets curated around a shared problem space.</p>
+    <!-- WHY I BUILT THIS -->
+    <section class="letter-band" id="story" aria-labelledby="story-title">
+      <div class="col">
+        <h2 id="story-title">Why I built this</h2>
+        <div class="letter">
+          <p>At one of the UN COPs I was early for an evening reception, wandering the rooms of an inappropriately luxurious villa. Another guest was equally lost, and with time to kill we started talking. Knowing nothing about each other&rsquo;s organizations, we went straight to what each of us believed was truly at the heart of the environmental crisis. We&rsquo;ve worked together for over two years since, in a non-profit built around the structural deficits we named that evening.</p>
+          <p>It happened again at a climate summit, at a packed restaurant where a stranger let us join his table. He ran the local office of a major financial institution and had nothing to do with the summit. What he told me from inside that industry changed my mind about why things stay stuck, and how they get unstuck. Years later, we&rsquo;re still honest sounding boards for each other.</p>
+          <p>Neither conversation was on any agenda.</p>
+          <p>Room after room, across sectors, organizations, and standards bodies, the pattern held. Committed leaders, with real mandates and a real desire to make a difference, stuck in surface-level conversation. The exchange that mattered happened outside. Accidentally. If you got lucky.</p>
+          <p class="beat">What if we designed for these lucky accidents?</p>
+          <p>I want a different kind of space to exist. Retreat to Progress is my attempt at building one.</p>
+        </div>
+        <div class="signoff">
+          <img src="../Alex-speaker.png" alt="Dr. Alexander Schmidt">
+          <div>
+            <!-- "— Alex": Alex's own sign-off, dash kept deliberately. -->
+            <div class="sig">&mdash; Alex</div>
+            <div class="who">Dr. Alexander Schmidt, founder of Symbiosis Leadership AB</div>
+          </div>
+        </div>
       </div>
-      <a class="contact-btn" href="mailto:alexander@symbiosisleadership.com?subject=Retreat%20to%20Progress%20%E2%80%93%20founding%20cohort">alexander@symbiosisleadership.com</a>
-      <p class="privacy-note">
-        Your email comes to me directly and I answer it myself. I use what you write only to follow up with you about the retreat. No list, no sharing. The <a href="https://symbiosisleadership.com/privacy">privacy notice</a> has the detail.
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+    <!-- PRACTICALITIES -->
+    <section class="section" id="practicalities">
+      <div class="col">
+        <h2>Practicalities</h2>
+        <dl class="practical">
+          <div>
+            <dt>Dates</dt>
+            <dd>Cohorts form through the year. Dates are set with participants once the group is confirmed, around the sustainability calendar.</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>Chosen with each cohort, somewhere quiet and within easy reach for the people in it. The home of Retreat to Progress is the Bohusl&auml;n coast in western Sweden, where I live.</dd>
+          </div>
+          <div>
+            <dt>Investment</dt>
+            <dd>The fee depends on the cohort&rsquo;s format and venue. Sponsor-supported places may be available.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="col">
+        <h2>If this is the conversation you&rsquo;ve been missing, let&rsquo;s talk.</h2>
+        <p>
+          Places are by invitation, and a conversation is how an invitation starts. Book 25 minutes and tell me in a sentence or two what&rsquo;s in the way right now. That&rsquo;s what most of our first conversation will be about, and it&rsquo;s how I put a cohort together around a shared problem space.
+        </p>
+        <div class="actions">
+          <a href="https://cal.com/schmidt-alexander-dr/discovery" target="_blank" rel="noopener" class="btn">Book a conversation</a>
+          <a href="mailto:alexander@symbiosisleadership.com?subject=Retreat%20to%20Progress" class="text-link">or write to alexander@symbiosisleadership.com</a>
+        </div>
+        <p class="privacy">
+          Bookings go through cal.com, which processes your name and email to schedule the call. Emails come to me directly. I use what you write only to follow up with you about the retreat, and I don&rsquo;t share it. The <a href="/privacy">privacy notice</a> has the detail.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
   <footer>
-    <p>Retreat to Progress is a program of <a href="https://symbiosisleadership.com">Symbiosis Leadership AB</a> &nbsp;&middot;&nbsp; Questions: <a href="mailto:alexander@symbiosisleadership.com">alexander@symbiosisleadership.com</a></p>
-    <!-- ABL 28 kap. 5 §: företagsnamn, organisationsnummer and the ort for
-         styrelsens säte must appear on the company website. Vitessanktionerad. -->
-    <p class="footer-legal">Symbiosis Leadership AB &nbsp;&middot;&nbsp; Org.nr 559520-8801 &nbsp;&middot;&nbsp; S&auml;te: Soten&auml;s</p>
-    <p><a href="https://symbiosisleadership.com/privacy">Privacy notice</a> &nbsp;&middot;&nbsp; <span style="font-style:italic;">Photography: Unsplash</span></p>
+    <div class="footer-inner">
+      <!-- ABL 28 kap. 5 §: företagsnamn, organisationsnummer and the ort for
+           styrelsens säte must appear on the company website. Vitessanktionerad. -->
+      <div class="footer-legal">
+        <span>&copy; 2026 Symbiosis Leadership AB</span>
+        <span>Org.nr 559520-8801 &middot; S&auml;te: Soten&auml;s</span>
+      </div>
+      <div class="footer-links">
+        <a href="/">Symbiosis Leadership</a>
+        <a href="https://lifeunfolding.substack.com" target="_blank" rel="noopener">Substack</a>
+        <a href="https://www.linkedin.com/in/schmidt-alexander-dr/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="/privacy">Privacy</a>
+        <span>Photography: Unsplash</span>
+      </div>
+    </div>
   </footer>
 
 </body>
